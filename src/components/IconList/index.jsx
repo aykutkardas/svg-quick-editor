@@ -16,9 +16,9 @@ const IconList = () => {
         <div
           key={file.name}
           className={cx(styles.IconListItem, {
-            [styles.IconListItemActive]: file.name === selectedFile?.name,
+            [styles.IconListItemActive]: file.name === selectedFile,
           })}
-          onClick={() => setSelectedFile(file)}
+          onClick={() => setSelectedFile(file.name)}
         >
           <span
             className={styles.IconListItemIcon}
