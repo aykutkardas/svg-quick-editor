@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SVG Quick Editor",
+  "name": "SVG Quick Editor",
   "icons": [
     {
       "src": "favicon.ico",
