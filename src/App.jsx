@@ -1,17 +1,15 @@
 import "./App.css";
 
-import { Provider as FilesProvider } from "./contexts/FilesContext";
+import { useContext } from "react";
 
 import Upload from "./components/Upload";
+import Editor from "./containers/Editor";
+import { Context } from "./contexts/FilesContext";
 
 function App() {
-  return (
-    <FilesProvider>
-      <div className="App">
-        <Upload />
-      </div>
-    </FilesProvider>
-  );
+  const { files } = useContext(Context);
+
+  return <div className="App">{files?.length ? <Editor /> : <Upload />}</div>;
 }
 
 export default App;
