@@ -4,6 +4,7 @@ import { Scrollbars } from "react-custom-scrollbars";
 import * as styles from "./Editor.module.css";
 
 import IconList from "../../components/IconList";
+import EditorTool from "../../components/EditorTool";
 
 import { Context } from "../../contexts/FilesContext";
 
@@ -23,18 +24,7 @@ const Editor = () => {
             </svg>
           )}
         </div>
-        <div className={styles.EditorTool}>
-          {selectedFile?.paths.map((path) => (
-            <div className={styles.EditorToolPath}>
-              <div className={styles.EditorToolPathTitle}>Path</div>
-              <div className={styles.EditorToolPathValue}>
-                <Scrollbars autoHide style={{ width: "100%", height: 30 }}>
-                  <span>{path}</span>
-                </Scrollbars>
-              </div>
-            </div>
-          ))}
-        </div>
+        <EditorTool />
       </div>
     </div>
   );
