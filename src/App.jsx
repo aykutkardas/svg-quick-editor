@@ -7,9 +7,13 @@ import Editor from "./containers/Editor";
 import { Context } from "./contexts/FilesContext";
 
 function App() {
-  const { files } = useContext(Context);
+  // const { files } = useContext(Context);
 
-  return <div className="App">{files?.length ? <Editor /> : <Upload />}</div>;
+  return (
+    <div className="App">
+      <Editor />
+    </div>
+  );
 }
 
 export default App;

@@ -1,10 +1,13 @@
 import { useContext, useRef } from "react";
+import cx from "classnames";
 
 import getSelectedFiles from "../../utils/getSelectedFiles";
 import { Context } from "../../contexts/FilesContext";
+import Icon from "../../components/Icon";
+
 import * as styles from "./Upload.module.css";
 
-const Upload = () => {
+const Upload = ({ className }) => {
   const inputRef = useRef();
   const { setFiles } = useContext(Context);
 
@@ -14,8 +17,9 @@ const Upload = () => {
   };
 
   return (
-    <div className={styles.Upload}>
+    <div className={cx(className, styles.Upload)}>
       <label htmlFor="file-input">
+        <Icon icon="plus" size={10} /> Add Files
         <input
           id="file-input"
           type="file"
@@ -23,10 +27,6 @@ const Upload = () => {
           ref={inputRef}
           onChange={handleFileInput}
         />
-        <span>UPLOAD</span>
-        <p>
-          Select the <b>SVG</b> files you want to edit
-        </p>
       </label>
     </div>
   );
