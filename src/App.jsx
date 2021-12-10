@@ -1,10 +1,14 @@
 import "./App.css";
 
+import { Provider as FilesProvider } from "./contexts/FilesContext";
+
 function App() {
   return (
-    <div className="App">
-      <span>svg-quick-editor</span>
-    </div>
+    <FilesProvider>
+      <div className="App">
+        <span>svg-quick-editor</span>
+      </div>
+    </FilesProvider>
   );
 }
 
