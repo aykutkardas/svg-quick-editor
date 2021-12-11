@@ -21,6 +21,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .EditorIcon svg {
@@ -30,11 +31,23 @@
   fill: #fff;
 }
 
+.EditorIconFrame {
+  position: relative;
+}
+
 .EditorCurrentIconPath {
   opacity: 1;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .EditorCurrentIconPathPassive {
   opacity: 0.1;
+}
+
+.EditorIconName {
+  font-size: 11px;
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  color: #777;
 }

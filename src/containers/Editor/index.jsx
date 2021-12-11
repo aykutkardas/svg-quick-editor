@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import cx from "classnames";
+import filesize from "filesize";
 
 import * as styles from "./Editor.module.css";
 
@@ -7,6 +8,7 @@ import IconList from "../../components/IconList";
 import EditorTool from "../../components/EditorTool";
 
 import { Context } from "../../contexts/FilesContext";
+import convertToSVG from "../../utils/convertToSVG";
 
 const Editor = () => {
   const { files, selectedFile, getSelectedFile, activePathIndex } =
@@ -21,25 +23,43 @@ const Editor = () => {
     return typeof activePathIndex === "number" && activePathIndex === index;
   };
 
+  const fileContentLength = convertToSVG(file)?.length || 0;
+
+  const size =
+    file && file.width && file.height
+      ? ` - ${file.width}x${file.height}`
+      : null;
+
+  const fileSize =
+    file && fileContentLength ? ` - ${filesize(fileContentLength)}` : null;
+
   return (
     <div className={styles.Editor}>
       <IconList />
       <div className={styles.EditorIconArea}>
         <div className={styles.EditorIcon}>
           {file && (
-            <svg viewBox={file.viewBox}>
-              {file.paths.map((path, index) => (
-                <path
-                  key={path + (file.fills[index] || "")}
-                  d={path}
-                  fill={file.fills[index] || "#999"}
-                  className={cx(styles.EditorCurrentIconPath, {
-                    [styles.EditorCurrentIconPathPassive]:
-                      activePathIndex && !isCurrentPath(activePathIndex, index),
-                  })}
-                />
-              ))}
-            </svg>
+            <div className={styles.EditorIconFrame}>
+              <svg viewBox={file.viewBox}>
+                {file.paths.map((path, index) => (
+                  <path
+                    key={path + (file.fills[index] || "")}
+                    d={path}
+                    fill={file.fills[index] || "#999"}
+                    className={cx(styles.EditorCurrentIconPath, {
+                      [styles.EditorCurrentIconPathPassive]:
+                        activePathIndex &&
+                        !isCurrentPath(activePathIndex, index),
+                    })}
+                  />
+                ))}
+              </svg>
+              <span className={styles.EditorIconName}>
+                <b>{file.name}</b>
+                {size}
+                {fileSize}
+              </span>
+            </div>
           )}
         </div>
         <EditorTool />
