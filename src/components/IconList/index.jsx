@@ -4,6 +4,7 @@ import cx from "classnames";
 import * as styles from "./IconList.module.css";
 
 import Upload from "../Upload";
+import DownloadButton from "../DownloadButton";
 
 import { Context } from "../../contexts/FilesContext";
 
@@ -27,7 +28,8 @@ const IconList = () => {
             className={styles.IconListItemIcon}
             dangerouslySetInnerHTML={{ __html: file.content }}
           />
-          {file.name}
+          <span>{file.name}</span>
+          <DownloadButton file={file} />
         </div>
       ))}
     </div>

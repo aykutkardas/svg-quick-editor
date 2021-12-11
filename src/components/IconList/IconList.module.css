@@ -24,9 +24,18 @@
   white-space: nowrap;
 }
 
+.IconListItem :global(.download-button) {
+  display: none;
+}
+
 .IconListItem:hover,
 .IconListItemActive {
   background-color: #23272e;
+}
+
+.IconListItem:hover :global(.download-button),
+.IconListItemActive :global(.download-button) {
+  display: block;
 }
 
 .IconListTitle {
