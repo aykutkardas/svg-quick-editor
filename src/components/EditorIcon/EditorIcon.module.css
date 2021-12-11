@@ -1,0 +1,28 @@
+.EditorIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.EditorIconSVG {
+  width: 500px !important;
+  height: 500px !important;
+  border: 1px solid #333;
+  fill: #fff;
+}
+
+.EditorIconFrame {
+  position: relative;
+}
+
+.EditorCurrentIconPath {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+.EditorCurrentIconPathPassive {
+  opacity: 0.1;
+}
