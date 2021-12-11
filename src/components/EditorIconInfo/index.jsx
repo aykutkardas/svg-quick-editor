@@ -18,15 +18,15 @@ const EditorIconInfo = ({ file }) => {
   return (
     <span className={styles.EditorIconInfo}>
       <span>
-        <Icon icon="tag" size={12} />
+        <Icon icon="tag" size={14} />
         {file.name}
       </span>
       <span>
-        <Icon icon="image" size={12} />
+        <Icon icon="expand-full" size={14} />
         {size}
       </span>
       <span>
-        <Icon icon="dashboard" size={12} />
+        <Icon icon="box" size={14} />
         {fileSize}
       </span>
     </span>

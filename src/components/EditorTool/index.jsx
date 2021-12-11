@@ -134,7 +134,7 @@ const EditorTool = () => {
                 <Icon
                   className={styles.EditorToolRemoveIcon}
                   size={16}
-                  icon="trash"
+                  icon="delete-bin"
                   onClick={() => handleRemovePath(index)}
                 />
               </div>
