@@ -24,6 +24,7 @@ const Upload = ({ className }) => {
           id="file-input"
           type="file"
           multiple
+          accept="image/svg+xml"
           ref={inputRef}
           onChange={handleFileInput}
         />
