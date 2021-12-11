@@ -14,7 +14,7 @@ const IconList = () => {
       <h4 className={styles.IconListMainTitle}>SVG-QUICK-EDITOR</h4>
       <Uplaod className={styles.IconListItem} />
       <h4 className={styles.IconListTitle}>Files</h4>
-      {files.map((file) => (
+      {Object.values(files).map((file) => (
         <div
           key={file.name}
           className={cx(styles.IconListItem, {

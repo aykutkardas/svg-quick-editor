@@ -3,12 +3,16 @@ import { useState, createContext } from "react";
 const Context = createContext();
 
 function Provider({ children }) {
-  const [files, setFiles] = useState([]);
+  const [files, _setFiles] = useState({});
   const [selectedFile, setSelectedFile] = useState(null);
   const [activePathIndex, setActivePathIndex] = useState(null);
 
   const getSelectedFile = (name) => {
-    return files.find((file) => file.name === name);
+    return files[name];
+  };
+
+  const setFiles = (files) => {
+    _setFiles({ ...files });
   };
 
   return (

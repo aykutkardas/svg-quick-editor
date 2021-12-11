@@ -44,14 +44,9 @@ const EditorTool = () => {
 
     setColor(color);
     setFile(file);
-    const newFiles = files.map((file) => {
-      return {
-        ...file,
-        fills: file.fills,
-      };
-    });
+    files[file.name] = file;
 
-    setFiles(newFiles);
+    setFiles(files);
   };
 
   const handleColorGroup = (color) => {
@@ -63,14 +58,9 @@ const EditorTool = () => {
     setColorGroup(color);
     setFile(file);
 
-    const newFiles = files.map((file) => {
-      return {
-        ...file,
-        fills: file.fills,
-      };
-    });
+    files[file.name] = file;
 
-    setFiles(newFiles);
+    setFiles(files);
   };
 
   const handleMouseEnter = (index) => {
@@ -84,21 +74,15 @@ const EditorTool = () => {
   const removePath = (index) => {
     const path = file.paths?.[index];
 
-    const newFiles = files.map((file) => {
-      if (file.paths?.includes(path)) {
-        file.paths = file.paths?.filter(
-          (path, pathIndex) => pathIndex !== index
-        );
+    if (file.paths?.includes(path)) {
+      file.paths = file.paths?.filter((path, pathIndex) => pathIndex !== index);
 
-        file.fills = file.fills?.filter(
-          (fill, fillIndex) => fillIndex !== index
-        );
-      }
+      file.fills = file.fills?.filter((fill, fillIndex) => fillIndex !== index);
+    }
 
-      return file;
-    });
+    files[file.name] = file;
 
-    setFiles(newFiles);
+    setFiles(files);
   };
 
   useEffect(() => {
