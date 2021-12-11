@@ -4,6 +4,12 @@ const convertToSVG = (file) => {
 
   const svg = document.createElement('svg');
   svg.setAttribute('viewBox', file.viewBox);
+  svg.setAttribute('version', "1.1");
+  svg.setAttribute('xmlns', "http://www.w3.org/2000/svg");
+
+  // [TODO]: Convert dynamicly
+  svg.setAttribute('width', "32");
+  svg.setAttribute('height', "32");
 
   file.paths?.forEach((path, index) => {
     const pathEl = document.createElement('path');
