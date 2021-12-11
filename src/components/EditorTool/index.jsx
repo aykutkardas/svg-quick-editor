@@ -9,6 +9,7 @@ import * as styles from "./EditorTool.module.css";
 import { Context } from "../../contexts/FilesContext";
 import Icon from "../Icon/index";
 import removePath from "../../utils/removePathByIndex";
+import getColorCount from "../../utils/getColorCount";
 
 const EditorTool = () => {
   const { files, setFiles, selectedFile, getSelectedFile, setActivePathIndex } =
@@ -97,7 +98,8 @@ const EditorTool = () => {
               />
             </div>
             <div className={styles.EditorToolItemTitle}>
-              {(fill || "#EEEEEE").toUpperCase()}
+              {(fill || "#EEEEEE").toUpperCase()}{" "}
+              <span>({getColorCount(file, fill)})</span>
             </div>
           </div>
         ))}

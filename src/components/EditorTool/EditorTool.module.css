@@ -38,8 +38,14 @@
 
 .EditorToolItemTitle {
   margin-right: 20px;
-  width: auto;
   color: #fff;
+  user-select: none;
+  display: flex;
+}
+
+.EditorToolItemTitle span {
+  margin-left: 8px;
+  color: #aaa;
 }
 
 .EditorToolItemValue {
