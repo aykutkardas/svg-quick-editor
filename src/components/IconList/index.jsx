@@ -13,7 +13,9 @@ const IconList = () => {
   const { files, setFiles, selectedFile, setSelectedFile } =
     useContext(Context);
 
-  const handleDelete = (file) => {
+  const handleDelete = (file, event) => {
+    event.stopPropagation();
+
     if (!file) return;
 
     const isConfirm = window.confirm("Are you sure?");
@@ -48,7 +50,7 @@ const IconList = () => {
               className={styles.IconListItemRemoveIcon}
               size={14}
               icon="close"
-              onClick={() => handleDelete(file)}
+              onClick={(event) => handleDelete(file, event)}
             />
           </span>
         </div>
