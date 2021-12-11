@@ -1,12 +1,23 @@
 .EditorTool {
   width: 100%;
-  height: 300px;
+  height: 400px;
   border-top: 1px solid #333;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   background: #1a1e22;
+}
+
+.EditorToolTitle {
+  font-size: 11px;
+  margin: 0;
+  width: 100%;
+  background-color: #20232a;
+  color: #bdc3bc;
+  font-weight: normal;
+  padding: 0 8px;
+  line-height: 22px;
 }
 
 .EditorToolItem {
@@ -54,6 +65,28 @@
   justify-content: flex-start;
   align-items: flex-start;
   background: #1a1e22;
+}
+
+.EditorToolColorGroupItems {
+  width: 120px;
+  /* height: 50px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background: #1a1e22;
+  font-size: 12px;
+}
+
+.EditorToolColorGroupItem {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background: #1a1e22;
+  font-size: 12px;
 }
 
 .EditorToolItemColor {

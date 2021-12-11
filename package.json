@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "classnames": "^2.3.1",
+    "lodash.xor": "^4.5.0",
     "react": "^17.0.2",
     "react-colorful": "^5.5.1",
     "react-custom-scrollbars": "^4.2.1",
