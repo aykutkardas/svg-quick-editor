@@ -1,4 +1,5 @@
 import { useState, createContext } from 'react';
+import lookie from 'lookie';
 
 const Context = createContext();
 
@@ -12,7 +13,9 @@ function Provider({ children }) {
   };
 
   const setFiles = files => {
-    _setFiles({ ...files });
+    const newFiles = { ...files };
+    _setFiles(newFiles);
+    lookie.set('files', newFiles);
   };
 
   return (
