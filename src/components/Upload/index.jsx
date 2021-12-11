@@ -19,7 +19,7 @@ const Upload = ({ className }) => {
   return (
     <div className={cx(className, styles.Upload)}>
       <label htmlFor="file-input">
-        <Icon icon="plus" size={10} /> Add Files
+        <Icon icon="plus" size={16} /> Add Files
         <input
           id="file-input"
           type="file"

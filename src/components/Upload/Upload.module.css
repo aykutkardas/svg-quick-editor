@@ -6,6 +6,8 @@
 .Upload label {
   width: 100%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .Upload svg {

@@ -48,7 +48,7 @@ const IconList = () => {
             <DownloadButton file={file} />
             <Icon
               className={styles.IconListItemRemoveIcon}
-              size={14}
+              size={16}
               icon="close"
               onClick={(event) => handleDelete(file, event)}
             />

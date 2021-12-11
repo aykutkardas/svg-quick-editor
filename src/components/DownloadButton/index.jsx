@@ -21,7 +21,7 @@ const Download = ({ file }) => {
       className={cx("download-button", styles.DownloadButton)}
       onClick={onClick}
     >
-      <Icon icon="download" size={14} />
+      <Icon icon="disk" size={12} />
     </button>
   ) : null;
 };
