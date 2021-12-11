@@ -29,3 +29,12 @@
   border: 1px solid #333;
   fill: #fff;
 }
+
+.EditorCurrentIconPath {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.EditorCurrentIconPathPassive {
+  opacity: 0.1;
+}

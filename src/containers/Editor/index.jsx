@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import cx from "classnames";
 
 import * as styles from "./Editor.module.css";
 
@@ -16,6 +17,10 @@ const Editor = () => {
     setFile(getSelectedFile(selectedFile));
   }, [selectedFile, files]);
 
+  const isCurrentPath = (activePathIndex, index) => {
+    return typeof activePathIndex === "number" && activePathIndex === index;
+  };
+
   return (
     <div className={styles.Editor}>
       <IconList />
@@ -28,14 +33,10 @@ const Editor = () => {
                   key={path + (file.fills[index] || "")}
                   d={path}
                   fill={file.fills[index] || "#999"}
-                  style={{
-                    opacity:
-                      typeof activePathIndex === "number"
-                        ? activePathIndex === index
-                          ? 1
-                          : 0.1
-                        : 1,
-                  }}
+                  className={cx(styles.EditorCurrentIconPath, {
+                    [styles.EditorCurrentIconPathPassive]:
+                      activePathIndex && !isCurrentPath(activePathIndex, index),
+                  })}
                 />
               ))}
             </svg>
