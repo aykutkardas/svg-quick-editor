@@ -3,7 +3,8 @@ import cx from "classnames";
 
 import * as styles from "./IconList.module.css";
 
-import Uplaod from "../Upload";
+import Upload from "../Upload";
+
 import { Context } from "../../contexts/FilesContext";
 
 const IconList = () => {
@@ -12,7 +13,7 @@ const IconList = () => {
   return (
     <div className={styles.IconList}>
       <h4 className={styles.IconListMainTitle}>SVG-QUICK-EDITOR</h4>
-      <Uplaod className={styles.IconListItem} />
+      <Upload className={styles.IconListItem} />
       <h4 className={styles.IconListTitle}>Files</h4>
       {Object.values(files).map((file) => (
         <div
