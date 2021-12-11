@@ -1,0 +1,16 @@
+.DownloadButton {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.DownloadButton svg {
+  color: #aaa;
+}
+
+.DownloadButton:hover svg {
+  color: #eee;
+}
