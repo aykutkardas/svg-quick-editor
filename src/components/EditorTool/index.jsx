@@ -86,7 +86,9 @@ const EditorTool = () => {
 
   return (
     <div className={styles.EditorTool}>
-      <div className={styles.EditorToolTitle}>Color Groups</div>
+      <div className={styles.EditorToolTitle}>
+        Color Groups ({xor(file?.fills).length || 0})
+      </div>
       <div className={styles.EditorToolColorGroupItems}>
         {xor(file?.fills).map((fill) => (
           <div className={styles.EditorToolColorGroupItem}>
