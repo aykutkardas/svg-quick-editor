@@ -58,6 +58,8 @@
 }
 
 .EditorToolItemValue span {
+  width: 100%;
+  overflow: hidden;
   line-height: 30px;
   user-select: none;
 }
@@ -117,7 +119,8 @@
 
 .EditorToolRemoveIcon {
   color: #aaa;
-  margin-left: 10px;
+  margin-left: auto;
+  padding-left: 10px;
   display: none !important;
   cursor: pointer;
 }

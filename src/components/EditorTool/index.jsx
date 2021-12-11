@@ -130,9 +130,7 @@ const EditorTool = () => {
               </div>
               <div className={styles.EditorToolItemTitle}>Path {index + 1}</div>
               <div className={styles.EditorToolItemValue}>
-                <Scrollbars autoHide style={{ width: "100%", height: 30 }}>
-                  <span>{path}</span>
-                </Scrollbars>
+                <span>{path}</span>
                 <Icon
                   className={styles.EditorToolRemoveIcon}
                   size={16}
