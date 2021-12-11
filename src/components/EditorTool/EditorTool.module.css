@@ -20,6 +20,11 @@
   line-height: 22px;
 }
 
+.EditorToolTitle span {
+  color: #777;
+  margin-left: 5px;
+}
+
 .EditorToolItem {
   height: 30px;
   font-size: 12px;

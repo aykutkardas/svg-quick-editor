@@ -76,6 +76,11 @@
   line-height: 22px;
 }
 
+.IconListTitle span {
+  color: #777;
+  margin-left: 5px;
+}
+
 .IconListMainTitle {
   composes: IconListTitle;
   height: 30px;

@@ -50,7 +50,9 @@ const ColorGroups = ({ file, setFile }) => {
 
   return (
     <div className={styles.ColorGroups}>
-      <div className={styles.ColorGroupsTitle}>Color Groups ({xor(file?.fills).length || 0})</div>
+      <div className={styles.ColorGroupsTitle}>
+        Color Groups <span>{xor(file?.fills).length || 0}</span>
+      </div>
       <div className={styles.ColorGroupsItems}>
         {xor(file?.fills).map((fill, index) => (
           <div key={`${index}-${fill}`} className={styles.ColorGroupsItem}>
@@ -62,7 +64,7 @@ const ColorGroups = ({ file, setFile }) => {
               />
             </div>
             <div className={styles.ColorGroupsItemTitle}>
-              {(fill || '#EEEEEE').toUpperCase()} <span>({getColorCount(file, fill)})</span>
+              {(fill || '#EEEEEE').toUpperCase()} <span>{getColorCount(file, fill)}</span>
             </div>
           </div>
         ))}

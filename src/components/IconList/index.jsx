@@ -31,9 +31,11 @@ const IconList = () => {
     <div className={styles.IconList}>
       <h4 className={styles.IconListMainTitle}>SVG-QUICK-EDITOR</h4>
       <Upload className={styles.IconListItem} />
-      <ExportButton className={styles.IconListItem} />
       <ImportButton className={styles.IconListItem} />
-      <h4 className={styles.IconListTitle}>Files</h4>
+      <ExportButton className={styles.IconListItem} />
+      <h4 className={styles.IconListTitle}>
+        Files <span>{Object.keys(files).length}</span>
+      </h4>
       {Object.values(files).map(file => (
         <div
           key={file.name}

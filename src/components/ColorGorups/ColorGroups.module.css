@@ -13,6 +13,11 @@
   line-height: 22px;
 }
 
+.ColorGroupsTitle span {
+  color: #777;
+  margin-left: 5px;
+}
+
 .ColorGroupsItems {
   width: 100%;
   display: flex;
@@ -54,6 +59,7 @@
 .ColorGroupsItemTitle span {
   margin-left: 5px;
   color: #aaa;
+  font-size: 10px;
 }
 
 .ColorGroupsItemColorWheel {

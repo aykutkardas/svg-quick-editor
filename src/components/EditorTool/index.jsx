@@ -74,7 +74,10 @@ const EditorTool = () => {
   return (
     <div className={styles.EditorTool} key={selectedFile}>
       <ColorGroups file={file} setFile={setFile} />
-      <div className={styles.EditorToolTitle}>Paths ({file?.paths?.length || 0})</div>
+      <div className={styles.EditorToolTitle}>
+        Paths
+        <span>{file?.paths?.length || 0}</span>
+      </div>
       <div className={styles.EditorToolItems}>
         <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
           {file?.paths.map((path, index) => (
