@@ -8,6 +8,7 @@ import * as styles from "./EditorTool.module.css";
 
 import { Context } from "../../contexts/FilesContext";
 import Icon from "../Icon/index";
+import removePath from "../../utils/removePathByIndex";
 
 const EditorTool = () => {
   const { files, setFiles, selectedFile, getSelectedFile, setActivePathIndex } =
@@ -71,16 +72,8 @@ const EditorTool = () => {
     setActivePathIndex(null);
   };
 
-  const removePath = (index) => {
-    const path = file.paths?.[index];
-
-    if (file.paths?.includes(path)) {
-      file.paths = file.paths?.filter((path, pathIndex) => pathIndex !== index);
-
-      file.fills = file.fills?.filter((fill, fillIndex) => fillIndex !== index);
-    }
-
-    files[file.name] = file;
+  const handleRemovePath = (index) => {
+    files[file.name] = removePath(file, index);
 
     setFiles(files);
   };
@@ -139,7 +132,7 @@ const EditorTool = () => {
                   className={styles.EditorToolRemoveIcon}
                   size={16}
                   icon="trash"
-                  onClick={() => removePath(index)}
+                  onClick={() => handleRemovePath(index)}
                 />
               </div>
             </div>
