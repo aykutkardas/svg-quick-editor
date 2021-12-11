@@ -1,10 +1,10 @@
 .Editor {
-  width: 1000px;
-  max-width: 90%;
-  height: 900px;
-  border: 1px solid #333;
+  width: 100%;
+  height: 100vh;
   background-color: #20232a;
   display: flex;
+  margin: 0;
+  overflow: hidden;
 }
 
 .EditorIconArea {
