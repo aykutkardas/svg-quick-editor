@@ -13,7 +13,7 @@ const ExportButton = ({ className }) => {
   const onClick = () => {
     const content = JSON.stringify(files, null, 2);
 
-    var dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(content);
+    var dataStr = 'data:application/json;charset=utf-8,' + encodeURIComponent(content);
     var downloadElement = document.createElement('a');
     downloadElement.setAttribute('href', dataStr);
     downloadElement.setAttribute('download', 'svg-quick-editor-collection.json');
