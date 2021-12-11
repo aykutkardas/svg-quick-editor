@@ -16,7 +16,7 @@ const ColorGroups = ({ file, setFile }) => {
   const [positions, setPositions] = useState([0, 0]);
 
   const toggleColorGroup = (colorGroup, { screenX, screenY }) => {
-    setPositions([screenX, screenY]);
+    setPositions([screenY, screenX]);
     setColorGroup(colorGroup);
     setOpenColorGroup(!openColorGroup);
   };
@@ -35,6 +35,17 @@ const ColorGroups = ({ file, setFile }) => {
     files[file.name] = file;
 
     setFiles(files);
+  };
+
+  const getColorWheelPosition = positions => {
+    const verticalOffset = 10;
+    const horizontalOffset = 290;
+    const [top = 0, left = 0] = positions;
+
+    return {
+      top: top - horizontalOffset,
+      left: left + verticalOffset,
+    };
   };
 
   return (
@@ -56,10 +67,7 @@ const ColorGroups = ({ file, setFile }) => {
           </div>
         ))}
       </div>
-      <div
-        className={styles.ColorGroupsItemColorPicker}
-        style={{ top: positions?.[1] - 270, left: positions?.[0] + 10 }}
-      >
+      <div className={styles.ColorGroupsItemColorPicker} style={getColorWheelPosition(positions)}>
         <OutsideClickHandler onOutsideClick={closeColor}>
           {openColorGroup && <HexColorPicker color={colorGroup} onChange={handleColorGroup} />}
         </OutsideClickHandler>

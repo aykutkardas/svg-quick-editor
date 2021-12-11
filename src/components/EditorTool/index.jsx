@@ -21,7 +21,7 @@ const EditorTool = () => {
   const [currentPathIndex, setCurrentPathIndex] = useState(null);
 
   const toggleColor = (color, { screenX, screenY }) => {
-    setPositions([screenX, screenY]);
+    setPositions([screenY, screenX]);
     setColor(color);
     setOpenColor(!openColor);
   };
@@ -60,6 +60,17 @@ const EditorTool = () => {
     setActivePathIndex(null);
   }, [selectedFile, files]);
 
+  const getColorWheelPosition = positions => {
+    const verticalOffset = 10;
+    const horizontalOffset = 290;
+    const [top = 0, left = 0] = positions;
+
+    return {
+      top: top - horizontalOffset,
+      left: left + verticalOffset,
+    };
+  };
+
   return (
     <div className={styles.EditorTool} key={selectedFile}>
       <ColorGroups file={file} setFile={setFile} />
@@ -95,10 +106,7 @@ const EditorTool = () => {
           ))}
         </Scrollbars>
       </div>
-      <div
-        className={styles.EditorToolColorPicker}
-        style={{ top: positions?.[1] - 270, left: positions?.[0] + 10 }}
-      >
+      <div className={styles.EditorToolColorPicker} style={getColorWheelPosition(positions)}>
         <OutsideClickHandler onOutsideClick={closeColor}>
           {openColor && <HexColorPicker color={color} onChange={handleColor} />}
         </OutsideClickHandler>
