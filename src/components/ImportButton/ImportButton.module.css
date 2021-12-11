@@ -1,0 +1,29 @@
+.ImportButton {
+  background-color: transparent;
+  border: 0;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.ImportButton svg {
+  color: #aaa;
+  margin-right: 5px;
+}
+
+.ImportButton:hover svg {
+  color: #eee;
+}
+
+.ImportButton input {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.ImportButton label {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}

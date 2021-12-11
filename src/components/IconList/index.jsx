@@ -4,6 +4,7 @@ import cx from 'classnames';
 import * as styles from './IconList.module.css';
 
 import Upload from '../Upload';
+import ImportButton from '../ImportButton';
 import ExportButton from '../ExportButton';
 import Icon from '../Icon';
 import DownloadButton from '../DownloadButton';
@@ -31,6 +32,7 @@ const IconList = () => {
       <h4 className={styles.IconListMainTitle}>SVG-QUICK-EDITOR</h4>
       <Upload className={styles.IconListItem} />
       <ExportButton className={styles.IconListItem} />
+      <ImportButton className={styles.IconListItem} />
       <h4 className={styles.IconListTitle}>Files</h4>
       {Object.values(files).map(file => (
         <div
