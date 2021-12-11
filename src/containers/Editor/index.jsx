@@ -20,7 +20,9 @@ const Editor = () => {
   }, [selectedFile, files]);
 
   const isCurrentPath = (activePathIndex, index) => {
-    return typeof activePathIndex === "number" && activePathIndex === index;
+    return typeof activePathIndex === "number"
+      ? activePathIndex === index
+      : true;
   };
 
   const fileContentLength = convertToSVG(file)?.length || 0;
@@ -43,13 +45,14 @@ const Editor = () => {
               <svg viewBox={file.viewBox}>
                 {file.paths.map((path, index) => (
                   <path
-                    key={path + (file.fills[index] || "")}
+                    key={path + index + (file.fills[index] || "")}
                     d={path}
                     fill={file.fills[index] || "#999"}
                     className={cx(styles.EditorCurrentIconPath, {
-                      [styles.EditorCurrentIconPathPassive]:
-                        activePathIndex &&
-                        !isCurrentPath(activePathIndex, index),
+                      [styles.EditorCurrentIconPathPassive]: !isCurrentPath(
+                        activePathIndex,
+                        index
+                      ),
                     })}
                   />
                 ))}
