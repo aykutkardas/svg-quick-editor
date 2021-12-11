@@ -18,6 +18,9 @@
     "svgps": "^0.2.2",
     "web-vitals": "^1.0.1"
   },
+  "devDependencies": {
+    "prettier": "^2.5.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

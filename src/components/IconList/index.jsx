@@ -1,25 +1,24 @@
-import { useContext } from "react";
-import cx from "classnames";
+import { useContext } from 'react';
+import cx from 'classnames';
 
-import * as styles from "./IconList.module.css";
+import * as styles from './IconList.module.css';
 
-import Upload from "../Upload";
-import ExportButton from "../ExportButton";
-import Icon from "../Icon";
-import DownloadButton from "../DownloadButton";
+import Upload from '../Upload';
+import ExportButton from '../ExportButton';
+import Icon from '../Icon';
+import DownloadButton from '../DownloadButton';
 
-import { Context } from "../../contexts/FilesContext";
+import { Context } from '../../contexts/FilesContext';
 
 const IconList = () => {
-  const { files, setFiles, selectedFile, setSelectedFile } =
-    useContext(Context);
+  const { files, setFiles, selectedFile, setSelectedFile } = useContext(Context);
 
   const handleDelete = (file, event) => {
     event.stopPropagation();
 
     if (!file) return;
 
-    const isConfirm = window.confirm("Are you sure?");
+    const isConfirm = window.confirm('Are you sure?');
 
     if (!isConfirm) return;
 
@@ -33,7 +32,7 @@ const IconList = () => {
       <Upload className={styles.IconListItem} />
       <ExportButton className={styles.IconListItem} />
       <h4 className={styles.IconListTitle}>Files</h4>
-      {Object.values(files).map((file) => (
+      {Object.values(files).map(file => (
         <div
           key={file.name}
           className={cx(styles.IconListItem, {
@@ -52,7 +51,7 @@ const IconList = () => {
               className={styles.IconListItemRemoveIcon}
               size={18}
               icon="multiply"
-              onClick={(event) => handleDelete(file, event)}
+              onClick={event => handleDelete(file, event)}
             />
           </span>
         </div>

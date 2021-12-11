@@ -1,6 +1,6 @@
-import "./App.css";
+import './App.css';
 
-import Editor from "./containers/Editor";
+import Editor from './containers/Editor';
 
 function App() {
   return (

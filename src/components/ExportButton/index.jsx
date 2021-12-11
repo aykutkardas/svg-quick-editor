@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import cx from "classnames";
+import { useContext } from 'react';
+import cx from 'classnames';
 
-import Icon from "../../components/Icon";
+import Icon from '../../components/Icon';
 
-import { Context } from "../../contexts/FilesContext";
+import { Context } from '../../contexts/FilesContext';
 
-import * as styles from "./ExportButton.module.css";
+import * as styles from './ExportButton.module.css';
 
 const ExportButton = ({ className }) => {
   const { files } = useContext(Context);
@@ -13,13 +13,10 @@ const ExportButton = ({ className }) => {
   const onClick = () => {
     const content = JSON.stringify(files, null, 2);
 
-    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(content);
-    var downloadElement = document.createElement("a");
-    downloadElement.setAttribute("href", dataStr);
-    downloadElement.setAttribute(
-      "download",
-      "svg-quick-editor-collection.json"
-    );
+    var dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(content);
+    var downloadElement = document.createElement('a');
+    downloadElement.setAttribute('href', dataStr);
+    downloadElement.setAttribute('download', 'svg-quick-editor-collection.json');
     downloadElement.click();
   };
 

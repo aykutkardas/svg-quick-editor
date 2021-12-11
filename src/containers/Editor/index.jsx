@@ -1,7 +1,7 @@
-import * as styles from "./Editor.module.css";
-import IconList from "../../components/IconList";
-import EditorTool from "../../components/EditorTool";
-import EditorIcon from "../../components/EditorIcon";
+import * as styles from './Editor.module.css';
+import IconList from '../../components/IconList';
+import EditorTool from '../../components/EditorTool';
+import EditorIcon from '../../components/EditorIcon';
 
 const Editor = () => {
   return (

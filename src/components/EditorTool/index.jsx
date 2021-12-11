@@ -1,15 +1,15 @@
-import { useContext, useEffect, useState } from "react";
-import { HexColorPicker } from "react-colorful";
-import { Scrollbars } from "react-custom-scrollbars";
-import OutsideClickHandler from "react-outside-click-handler";
-import xor from "lodash.xor";
+import { useContext, useEffect, useState } from 'react';
+import { HexColorPicker } from 'react-colorful';
+import { Scrollbars } from 'react-custom-scrollbars';
+import OutsideClickHandler from 'react-outside-click-handler';
+import xor from 'lodash.xor';
 
-import * as styles from "./EditorTool.module.css";
+import * as styles from './EditorTool.module.css';
 
-import { Context } from "../../contexts/FilesContext";
-import Icon from "../Icon/index";
-import removePath from "../../utils/removePathByIndex";
-import getColorCount from "../../utils/getColorCount";
+import { Context } from '../../contexts/FilesContext';
+import Icon from '../Icon/index';
+import removePath from '../../utils/removePathByIndex';
+import getColorCount from '../../utils/getColorCount';
 
 const EditorTool = () => {
   const { files, setFiles, selectedFile, getSelectedFile, setActivePathIndex } =
@@ -40,7 +40,7 @@ const EditorTool = () => {
     setOpenColorGroup(false);
   };
 
-  const handleColor = (color) => {
+  const handleColor = color => {
     if (!file) return;
     file.fills[currentPathIndex] = color;
 
@@ -51,11 +51,9 @@ const EditorTool = () => {
     setFiles(files);
   };
 
-  const handleColorGroup = (color) => {
+  const handleColorGroup = color => {
     if (!file) return;
-    file.fills = file.fills?.map((fill) =>
-      fill === colorGroup ? color : fill
-    );
+    file.fills = file.fills?.map(fill => (fill === colorGroup ? color : fill));
 
     setColorGroup(color);
     setFile(file);
@@ -65,7 +63,7 @@ const EditorTool = () => {
     setFiles(files);
   };
 
-  const handleMouseEnter = (index) => {
+  const handleMouseEnter = index => {
     setActivePathIndex(index);
   };
 
@@ -73,7 +71,7 @@ const EditorTool = () => {
     setActivePathIndex(null);
   };
 
-  const handleRemovePath = (index) => {
+  const handleRemovePath = index => {
     files[file.name] = removePath(file, index);
 
     setFiles(files);
@@ -85,32 +83,27 @@ const EditorTool = () => {
   }, [selectedFile, files]);
 
   return (
-    <div className={styles.EditorTool}>
-      <div className={styles.EditorToolTitle}>
-        Color Groups ({xor(file?.fills).length || 0})
-      </div>
+    <div className={styles.EditorTool} key={selectedFile}>
+      <div className={styles.EditorToolTitle}>Color Groups ({xor(file?.fills).length || 0})</div>
       <div className={styles.EditorToolColorGroupItems}>
-        {xor(file?.fills).map((fill) => (
-          <div className={styles.EditorToolColorGroupItem}>
+        {xor(file?.fills).map((fill, index) => (
+          <div key={`${index}-${fill}`} className={styles.EditorToolColorGroupItem}>
             <div className={styles.EditorToolItemColor}>
               <div
-                onClick={(event) => toggleColorGroup(fill || "#eee", event)}
+                onClick={event => toggleColorGroup(fill || '#eee', event)}
                 className={styles.EditorToolItemColorWheel}
-                style={{ backgroundColor: fill || "#eee" }}
+                style={{ backgroundColor: fill || '#eee' }}
               />
             </div>
             <div className={styles.EditorToolItemTitle}>
-              {(fill || "#EEEEEE").toUpperCase()}{" "}
-              <span>({getColorCount(file, fill)})</span>
+              {(fill || '#EEEEEE').toUpperCase()} <span>({getColorCount(file, fill)})</span>
             </div>
           </div>
         ))}
       </div>
-      <div className={styles.EditorToolTitle}>
-        Paths ({file?.paths?.length || 0})
-      </div>
+      <div className={styles.EditorToolTitle}>Paths ({file?.paths?.length || 0})</div>
       <div className={styles.EditorToolItems}>
-        <Scrollbars autoHide style={{ width: "100%", height: "100%" }}>
+        <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
           {file?.paths.map((path, index) => (
             <div
               key={path + index}
@@ -121,11 +114,9 @@ const EditorTool = () => {
             >
               <div className={styles.EditorToolItemColor}>
                 <div
-                  onClick={(event) =>
-                    toggleColor(file?.fills[index] || "#eee", event)
-                  }
+                  onClick={event => toggleColor(file?.fills[index] || '#eee', event)}
                   className={styles.EditorToolItemColorWheel}
-                  style={{ backgroundColor: file?.fills[index] || "#eee" }}
+                  style={{ backgroundColor: file?.fills[index] || '#eee' }}
                 />
               </div>
               <div className={styles.EditorToolItemTitle}>Path {index + 1}</div>
@@ -148,9 +139,7 @@ const EditorTool = () => {
       >
         <OutsideClickHandler onOutsideClick={closeColor}>
           {openColor && <HexColorPicker color={color} onChange={handleColor} />}
-          {openColorGroup && (
-            <HexColorPicker color={colorGroup} onChange={handleColorGroup} />
-          )}
+          {openColorGroup && <HexColorPicker color={colorGroup} onChange={handleColorGroup} />}
         </OutsideClickHandler>
       </div>
     </div>

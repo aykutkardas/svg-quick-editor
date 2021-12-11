@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext } from 'react';
 
 const Context = createContext();
 
@@ -7,11 +7,11 @@ function Provider({ children }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [activePathIndex, setActivePathIndex] = useState(null);
 
-  const getSelectedFile = (name) => {
+  const getSelectedFile = name => {
     return files[name];
   };
 
-  const setFiles = (files) => {
+  const setFiles = files => {
     _setFiles({ ...files });
   };
 

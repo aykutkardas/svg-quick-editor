@@ -1,14 +1,14 @@
-const convertToSVG = (file) => {
+const convertToSVG = file => {
   if (!file) return;
   const parent = document.createElement('div');
 
   const svg = document.createElement('svg');
   svg.setAttribute('viewBox', file.viewBox);
-  svg.setAttribute('version', "1.1");
-  svg.setAttribute('xmlns', "http://www.w3.org/2000/svg");
+  svg.setAttribute('version', '1.1');
+  svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 
-  svg.setAttribute('width', file.width || "32");
-  svg.setAttribute('height', file.height || "32");
+  svg.setAttribute('width', file.width || '32');
+  svg.setAttribute('height', file.height || '32');
 
   file.paths?.forEach((path, index) => {
     const pathEl = document.createElement('path');
@@ -20,8 +20,7 @@ const convertToSVG = (file) => {
     }
 
     svg.appendChild(pathEl);
-  })
-
+  });
 
   parent.appendChild(svg);
 

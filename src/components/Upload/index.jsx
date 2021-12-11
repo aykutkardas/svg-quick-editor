@@ -1,17 +1,17 @@
-import { useContext, useRef } from "react";
-import cx from "classnames";
+import { useContext, useRef } from 'react';
+import cx from 'classnames';
 
-import getSelectedFiles from "../../utils/getSelectedFiles";
-import { Context } from "../../contexts/FilesContext";
-import Icon from "../../components/Icon";
+import getSelectedFiles from '../../utils/getSelectedFiles';
+import { Context } from '../../contexts/FilesContext';
+import Icon from '../../components/Icon';
 
-import * as styles from "./Upload.module.css";
+import * as styles from './Upload.module.css';
 
 const Upload = ({ className }) => {
   const inputRef = useRef();
   const { files, setFiles } = useContext(Context);
 
-  const handleFileInput = async (event) => {
+  const handleFileInput = async event => {
     const newFiles = await getSelectedFiles(event);
     setFiles({ ...files, ...newFiles });
   };
