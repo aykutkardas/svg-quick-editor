@@ -34,7 +34,6 @@
 
 .EditorToolItem:hover {
   background-color: #23272e;
-  cursor: pointer;
 }
 
 .EditorToolItemTitle {
@@ -96,12 +95,14 @@
   align-items: center;
   justify-content: center;
   padding-left: 10px;
+  margin-right: 10px;
 }
 
 .EditorToolItemColorWheel {
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .EditorToolColorPicker {
@@ -112,6 +113,12 @@
 .EditorToolRemoveIcon {
   color: #aaa;
   margin-left: 10px;
+  display: none !important;
+  cursor: pointer;
+}
+
+.EditorToolItem:hover .EditorToolRemoveIcon {
+  display: block !important;
 }
 
 .EditorToolRemoveIcon:hover {

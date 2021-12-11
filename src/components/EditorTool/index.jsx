@@ -97,13 +97,13 @@ const EditorTool = () => {
               />
             </div>
             <div className={styles.EditorToolItemTitle}>
-              {fill || "#EEEEEE"}
+              {(fill || "#EEEEEE").toUpperCase()}
             </div>
           </div>
         ))}
       </div>
       <div className={styles.EditorToolTitle}>
-        Paths ({file?.paths?.length})
+        Paths ({file?.paths?.length || 0})
       </div>
       <div className={styles.EditorToolItems}>
         <Scrollbars autoHide style={{ width: "100%", height: "100%" }}>
