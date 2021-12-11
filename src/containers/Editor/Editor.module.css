@@ -24,7 +24,7 @@
   position: relative;
 }
 
-.EditorIcon svg {
+.EditorIconSVG {
   width: 500px !important;
   height: 500px !important;
   border: 1px solid #333;
@@ -44,10 +44,20 @@
   opacity: 0.1;
 }
 
-.EditorIconName {
+.EditorIconInfo {
   font-size: 11px;
   position: absolute;
   right: 0;
-  bottom: -10px;
-  color: #777;
+  bottom: -15px;
+  color: #555;
+}
+
+.EditorIconInfo span {
+  margin-left: 15px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.EditorIconInfo svg {
+  margin-right: 5px;
 }

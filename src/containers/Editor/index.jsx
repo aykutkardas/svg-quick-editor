@@ -6,6 +6,7 @@ import * as styles from "./Editor.module.css";
 
 import IconList from "../../components/IconList";
 import EditorTool from "../../components/EditorTool";
+import Icon from "../../components/Icon";
 
 import { Context } from "../../contexts/FilesContext";
 import convertToSVG from "../../utils/convertToSVG";
@@ -28,12 +29,10 @@ const Editor = () => {
   const fileContentLength = convertToSVG(file)?.length || 0;
 
   const size =
-    file && file.width && file.height
-      ? ` - ${file.width}x${file.height}`
-      : null;
+    file && file.width && file.height ? `${file.width}x${file.height}` : null;
 
   const fileSize =
-    file && fileContentLength ? ` - ${filesize(fileContentLength)}` : null;
+    file && fileContentLength ? filesize(fileContentLength) : null;
 
   return (
     <div className={styles.Editor}>
@@ -42,7 +41,7 @@ const Editor = () => {
         <div className={styles.EditorIcon}>
           {file && (
             <div className={styles.EditorIconFrame}>
-              <svg viewBox={file.viewBox}>
+              <svg className={styles.EditorIconSVG} viewBox={file.viewBox}>
                 {file.paths.map((path, index) => (
                   <path
                     key={path + index + (file.fills[index] || "")}
@@ -57,10 +56,19 @@ const Editor = () => {
                   />
                 ))}
               </svg>
-              <span className={styles.EditorIconName}>
-                <b>{file.name}</b>
-                {size}
-                {fileSize}
+              <span className={styles.EditorIconInfo}>
+                <span>
+                  <Icon icon="tag" size={12} />
+                  {file.name}
+                </span>
+                <span>
+                  <Icon icon="image" size={12} />
+                  {size}
+                </span>
+                <span>
+                  <Icon icon="dashboard" size={12} />
+                  {fileSize}
+                </span>
               </span>
             </div>
           )}
