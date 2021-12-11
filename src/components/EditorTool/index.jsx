@@ -6,6 +6,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 import * as styles from "./EditorTool.module.css";
 
 import { Context } from "../../contexts/FilesContext";
+import Icon from "../Icon/index";
 
 const EditorTool = () => {
   const { files, setFiles, selectedFile, getSelectedFile, setActivePathIndex } =
@@ -51,6 +52,26 @@ const EditorTool = () => {
     setActivePathIndex(null);
   };
 
+  const removePath = (index) => {
+    const path = file.paths?.[index];
+
+    const newFiles = files.map((file) => {
+      if (file.paths?.includes(path)) {
+        file.paths = file.paths?.filter(
+          (path, pathIndex) => pathIndex !== index
+        );
+
+        file.fills = file.fills?.filter(
+          (fill, fillIndex) => fillIndex !== index
+        );
+      }
+
+      return file;
+    });
+
+    setFiles(newFiles);
+  };
+
   useEffect(() => {
     setFile(getSelectedFile(selectedFile));
   }, [selectedFile]);
@@ -76,11 +97,17 @@ const EditorTool = () => {
                   style={{ backgroundColor: file?.fills[index] || "#eee" }}
                 />
               </div>
-              <div className={styles.EditorToolItemTitle}>Path</div>
+              <div className={styles.EditorToolItemTitle}>Path {index + 1}</div>
               <div className={styles.EditorToolItemValue}>
                 <Scrollbars autoHide style={{ width: "100%", height: 30 }}>
                   <span>{path}</span>
                 </Scrollbars>
+                <Icon
+                  className={styles.EditorToolRemoveIcon}
+                  size={16}
+                  icon="trash"
+                  onClick={() => removePath(index)}
+                />
               </div>
             </div>
           ))}
