@@ -82,7 +82,7 @@ const EditorTool = () => {
   useEffect(() => {
     setFile(getSelectedFile(selectedFile));
     setActivePathIndex(null);
-  }, [selectedFile]);
+  }, [selectedFile, files]);
 
   return (
     <div className={styles.EditorTool}>

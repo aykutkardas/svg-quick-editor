@@ -8,13 +8,13 @@ import EditorTool from "../../components/EditorTool";
 import { Context } from "../../contexts/FilesContext";
 
 const Editor = () => {
-  const { selectedFile, getSelectedFile, activePathIndex } =
+  const { files, selectedFile, getSelectedFile, activePathIndex } =
     useContext(Context);
   const [file, setFile] = useState(getSelectedFile(selectedFile));
 
   useEffect(() => {
     setFile(getSelectedFile(selectedFile));
-  }, [selectedFile]);
+  }, [selectedFile, files]);
 
   return (
     <div className={styles.Editor}>

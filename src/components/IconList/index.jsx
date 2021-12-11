@@ -4,12 +4,25 @@ import cx from "classnames";
 import * as styles from "./IconList.module.css";
 
 import Upload from "../Upload";
+import Icon from "../Icon";
 import DownloadButton from "../DownloadButton";
 
 import { Context } from "../../contexts/FilesContext";
 
 const IconList = () => {
-  const { files, selectedFile, setSelectedFile } = useContext(Context);
+  const { files, setFiles, selectedFile, setSelectedFile } =
+    useContext(Context);
+
+  const handleDelete = (file) => {
+    if (!file) return;
+
+    const isConfirm = window.confirm("Are you sure?");
+
+    if (!isConfirm) return;
+
+    delete files[file.name];
+    setFiles(files);
+  };
 
   return (
     <div className={styles.IconList}>
@@ -28,8 +41,16 @@ const IconList = () => {
             className={styles.IconListItemIcon}
             dangerouslySetInnerHTML={{ __html: file.content }}
           />
-          <span>{file.name}</span>
-          <DownloadButton file={file} />
+          <span className={styles.IconListItemFileName}>{file.name}</span>
+          <span className={styles.IconListItemAction}>
+            <DownloadButton file={file} />
+            <Icon
+              className={styles.IconListItemRemoveIcon}
+              size={14}
+              icon="close"
+              onClick={() => handleDelete(file)}
+            />
+          </span>
         </div>
       ))}
     </div>

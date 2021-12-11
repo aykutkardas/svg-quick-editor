@@ -33,9 +33,36 @@
   background-color: #23272e;
 }
 
+.IconListItemRemoveIcon {
+  color: #aaa;
+  display: none !important;
+}
+
+.IconListItemRemoveIcon:hover {
+  color: #eee;
+}
+
+.IconListItemFileName {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 150px;
+}
+
+.IconListItemAction {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 20px;
+  width: 40px;
+  justify-content: space-between;
+}
+
 .IconListItem:hover :global(.download-button),
-.IconListItemActive :global(.download-button) {
-  display: block;
+.IconListItemActive :global(.download-button),
+.IconListItem:hover .IconListItemRemoveIcon,
+.IconListItemActive .IconListItemRemoveIcon {
+  display: block !important;
 }
 
 .IconListTitle {
