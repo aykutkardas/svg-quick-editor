@@ -1,0 +1,15 @@
+.ExportButton {
+  background-color: transparent;
+  border: 0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ExportButton svg {
+  color: #aaa;
+  margin-right: 5px;
+}
+
+.ExportButton:hover svg {
+  color: #eee;
+}

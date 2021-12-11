@@ -9,11 +9,11 @@ import * as styles from "./Upload.module.css";
 
 const Upload = ({ className }) => {
   const inputRef = useRef();
-  const { setFiles } = useContext(Context);
+  const { files, setFiles } = useContext(Context);
 
   const handleFileInput = async (event) => {
-    const files = await getSelectedFiles(event);
-    setFiles?.(files);
+    const newFiles = await getSelectedFiles(event);
+    setFiles({ ...files, ...newFiles });
   };
 
   return (
