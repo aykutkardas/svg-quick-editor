@@ -1,15 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import cx from "classnames";
-import filesize from "filesize";
 
 import * as styles from "./Editor.module.css";
 
 import IconList from "../../components/IconList";
 import EditorTool from "../../components/EditorTool";
 import Icon from "../../components/Icon";
+import EditorIconInfo from "../../components/EditorIconInfo";
 
 import { Context } from "../../contexts/FilesContext";
-import convertToSVG from "../../utils/convertToSVG";
 
 const Editor = () => {
   const { files, selectedFile, getSelectedFile, activePathIndex } =
@@ -25,14 +24,6 @@ const Editor = () => {
       ? activePathIndex === index
       : true;
   };
-
-  const fileContentLength = convertToSVG(file)?.length || 0;
-
-  const size =
-    file && file.width && file.height ? `${file.width}x${file.height}` : null;
-
-  const fileSize =
-    file && fileContentLength ? filesize(fileContentLength) : null;
 
   return (
     <div className={styles.Editor}>
@@ -56,20 +47,7 @@ const Editor = () => {
                   />
                 ))}
               </svg>
-              <span className={styles.EditorIconInfo}>
-                <span>
-                  <Icon icon="tag" size={12} />
-                  {file.name}
-                </span>
-                <span>
-                  <Icon icon="image" size={12} />
-                  {size}
-                </span>
-                <span>
-                  <Icon icon="dashboard" size={12} />
-                  {fileSize}
-                </span>
-              </span>
+              <EditorIconInfo file={file} />
             </div>
           )}
         </div>

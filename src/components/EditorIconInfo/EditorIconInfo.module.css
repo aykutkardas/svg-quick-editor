@@ -1,0 +1,17 @@
+.EditorIconInfo {
+  font-size: 11px;
+  position: absolute;
+  right: 0;
+  bottom: -15px;
+  color: #555;
+}
+
+.EditorIconInfo span {
+  margin-left: 15px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.EditorIconInfo svg {
+  margin-right: 5px;
+}
