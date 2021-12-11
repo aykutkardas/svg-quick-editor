@@ -74,27 +74,6 @@
   background: #1a1e22;
 }
 
-.EditorToolColorGroupItems {
-  width: 120px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  background: #1a1e22;
-  font-size: 12px;
-}
-
-.EditorToolColorGroupItem {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  background: #1a1e22;
-  font-size: 12px;
-}
-
 .EditorToolItemColor {
   width: 30px;
   height: 100%;

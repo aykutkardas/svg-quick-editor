@@ -2,23 +2,20 @@ import { useContext, useEffect, useState } from 'react';
 import { HexColorPicker } from 'react-colorful';
 import { Scrollbars } from 'react-custom-scrollbars';
 import OutsideClickHandler from 'react-outside-click-handler';
-import xor from 'lodash.xor';
 
 import * as styles from './EditorTool.module.css';
 
 import { Context } from '../../contexts/FilesContext';
-import Icon from '../Icon/index';
+import Icon from '../Icon';
+import ColorGroups from '../ColorGorups';
 import removePath from '../../utils/removePathByIndex';
-import getColorCount from '../../utils/getColorCount';
 
 const EditorTool = () => {
   const { files, setFiles, selectedFile, getSelectedFile, setActivePathIndex } =
     useContext(Context);
   const [file, setFile] = useState(getSelectedFile(selectedFile));
   const [color, setColor] = useState();
-  const [colorGroup, setColorGroup] = useState();
   const [openColor, setOpenColor] = useState(false);
-  const [openColorGroup, setOpenColorGroup] = useState(false);
   const [positions, setPositions] = useState([0, 0]);
 
   const [currentPathIndex, setCurrentPathIndex] = useState(null);
@@ -29,15 +26,8 @@ const EditorTool = () => {
     setOpenColor(!openColor);
   };
 
-  const toggleColorGroup = (colorGroup, { screenX, screenY }) => {
-    setPositions([screenX, screenY]);
-    setColorGroup(colorGroup);
-    setOpenColorGroup(!openColor);
-  };
-
   const closeColor = () => {
     setOpenColor(false);
-    setOpenColorGroup(false);
   };
 
   const handleColor = color => {
@@ -46,18 +36,6 @@ const EditorTool = () => {
 
     setColor(color);
     setFile(file);
-    files[file.name] = file;
-
-    setFiles(files);
-  };
-
-  const handleColorGroup = color => {
-    if (!file) return;
-    file.fills = file.fills?.map(fill => (fill === colorGroup ? color : fill));
-
-    setColorGroup(color);
-    setFile(file);
-
     files[file.name] = file;
 
     setFiles(files);
@@ -84,23 +62,7 @@ const EditorTool = () => {
 
   return (
     <div className={styles.EditorTool} key={selectedFile}>
-      <div className={styles.EditorToolTitle}>Color Groups ({xor(file?.fills).length || 0})</div>
-      <div className={styles.EditorToolColorGroupItems}>
-        {xor(file?.fills).map((fill, index) => (
-          <div key={`${index}-${fill}`} className={styles.EditorToolColorGroupItem}>
-            <div className={styles.EditorToolItemColor}>
-              <div
-                onClick={event => toggleColorGroup(fill || '#eee', event)}
-                className={styles.EditorToolItemColorWheel}
-                style={{ backgroundColor: fill || '#eee' }}
-              />
-            </div>
-            <div className={styles.EditorToolItemTitle}>
-              {(fill || '#EEEEEE').toUpperCase()} <span>({getColorCount(file, fill)})</span>
-            </div>
-          </div>
-        ))}
-      </div>
+      <ColorGroups file={file} setFile={setFile} />
       <div className={styles.EditorToolTitle}>Paths ({file?.paths?.length || 0})</div>
       <div className={styles.EditorToolItems}>
         <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
@@ -139,7 +101,6 @@ const EditorTool = () => {
       >
         <OutsideClickHandler onOutsideClick={closeColor}>
           {openColor && <HexColorPicker color={color} onChange={handleColor} />}
-          {openColorGroup && <HexColorPicker color={colorGroup} onChange={handleColorGroup} />}
         </OutsideClickHandler>
       </div>
     </div>

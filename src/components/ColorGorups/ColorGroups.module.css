@@ -1,0 +1,69 @@
+.ColorGroups {
+  width: 100%;
+}
+
+.ColorGroupsTitle {
+  font-size: 11px;
+  margin: 0;
+  width: 100%;
+  background-color: #20232a;
+  color: #bdc3bc;
+  font-weight: normal;
+  padding: 0 8px;
+  line-height: 22px;
+}
+
+.ColorGroupsItems {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background: #1a1e22;
+  font-size: 12px;
+}
+
+.ColorGroupsItem {
+  width: auto;
+  height: 50px;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background: #1a1e22;
+  font-size: 12px;
+}
+
+.ColorGroupsItemColor {
+  width: 30px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  margin-right: 10px;
+}
+
+.ColorGroupsItemTitle {
+  margin-right: 20px;
+  color: #fff;
+  user-select: none;
+  display: flex;
+}
+
+.ColorGroupsItemTitle span {
+  margin-left: 5px;
+  color: #aaa;
+}
+
+.ColorGroupsItemColorWheel {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.ColorGroupsItemColorPicker {
+  position: absolute;
+  bottom: calc(130px + 30px);
+}
