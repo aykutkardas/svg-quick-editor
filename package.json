@@ -19,13 +19,16 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "husky": "^7.0.0",
+    "lint-staged": ">=10",
     "prettier": "^2.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -44,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "lint-staged": {
+    "*.{js,css,jsx}": "prettier --write"
   }
 }
