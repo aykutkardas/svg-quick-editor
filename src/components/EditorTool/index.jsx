@@ -80,6 +80,7 @@ const EditorTool = () => {
 
   useEffect(() => {
     setFile(getSelectedFile(selectedFile));
+    setActivePathIndex(null);
   }, [selectedFile]);
 
   return (
@@ -108,7 +109,7 @@ const EditorTool = () => {
         <Scrollbars autoHide style={{ width: "100%", height: "100%" }}>
           {file?.paths.map((path, index) => (
             <div
-              key={path}
+              key={path + index}
               className={styles.EditorToolItem}
               onClick={() => setCurrentPathIndex(index)}
               onMouseEnter={() => handleMouseEnter(index)}
