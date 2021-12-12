@@ -4,7 +4,7 @@ import convertToSVG from '../../utils/convertToSVG';
 
 import * as styles from './DownloadButton.module.css';
 
-const Download = ({ file }) => {
+const DownloadButton = ({ file }) => {
   const onClick = () => {
     const content = convertToSVG(file);
 
@@ -16,10 +16,14 @@ const Download = ({ file }) => {
   };
 
   return file ? (
-    <button className={cx('download-button', styles.DownloadButton)} onClick={onClick}>
+    <button
+      data-testid="DownloadButton"
+      className={cx('download-button', styles.DownloadButton)}
+      onClick={onClick}
+    >
       <Icon icon="save" size={16} />
     </button>
   ) : null;
 };
 
-export default Download;
+export default DownloadButton;
