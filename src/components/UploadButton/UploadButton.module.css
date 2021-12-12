@@ -26,7 +26,8 @@
 .UploadButton span {
   color: var(--txt-4);
   position: absolute;
-  right: 20px;
+  right: 18px;
   font-size: 10px;
   font-weight: bold;
+  opacity: 0.4;
 }
