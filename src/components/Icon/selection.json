@@ -3,9 +3,7 @@
   "icons": [
     {
       "icon": {
-        "paths": [
-          "M511.996 810.667l256-256M511.996 810.667l-256-256M511.996 810.667v-597.333"
-        ],
+        "paths": ["M511.996 810.667l256-256M511.996 810.667l-256-256M511.996 810.667v-597.333"],
         "attrs": [
           {
             "fill": "none",
@@ -18,9 +16,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": [
-          "arrow-down-line"
-        ]
+        "tags": ["arrow-down-line"]
       },
       "attrs": [
         {
@@ -66,9 +62,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": [
-          "arrows-expand-full-line"
-        ]
+        "tags": ["arrows-expand-full-line"]
       },
       "attrs": [
         {
@@ -98,9 +92,7 @@
     },
     {
       "icon": {
-        "paths": [
-          "M511.996 213.333l256 256M511.996 213.333l-256 256M511.996 213.333v597.333"
-        ],
+        "paths": ["M511.996 213.333l256 256M511.996 213.333l-256 256M511.996 213.333v597.333"],
         "attrs": [
           {
             "fill": "none",
@@ -113,9 +105,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": [
-          "arrow-up-line"
-        ]
+        "tags": ["arrow-up-line"]
       },
       "attrs": [
         {
@@ -153,9 +143,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": [
-          "box-line"
-        ]
+        "tags": ["box-line"]
       },
       "attrs": [
         {
@@ -193,9 +181,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": [
-          "delete-bin-line"
-        ]
+        "tags": ["delete-bin-line"]
       },
       "attrs": [
         {
@@ -241,9 +227,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": [
-          "eye-line"
-        ]
+        "tags": ["eye-line"]
       },
       "attrs": [
         {
@@ -304,9 +288,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": [
-          "eye-off-line"
-        ]
+        "tags": ["eye-off-line"]
       },
       "attrs": [
         {
@@ -343,9 +325,7 @@
     },
     {
       "icon": {
-        "paths": [
-          "M512 512l-256-256M512 512l256 256M512 512l256-256M512 512l-256 256"
-        ],
+        "paths": ["M512 512l-256-256M512 512l256 256M512 512l256-256M512 512l-256 256"],
         "attrs": [
           {
             "fill": "none",
@@ -358,9 +338,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": [
-          "multiply-line"
-        ]
+        "tags": ["multiply-line"]
       },
       "attrs": [
         {
@@ -383,9 +361,7 @@
     },
     {
       "icon": {
-        "paths": [
-          "M213.333 512h298.667M810.667 512h-298.667M512 512v-298.667M512 512v298.667"
-        ],
+        "paths": ["M213.333 512h298.667M810.667 512h-298.667M512 512v-298.667M512 512v298.667"],
         "attrs": [
           {
             "fill": "none",
@@ -398,9 +374,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": [
-          "plus-line"
-        ]
+        "tags": ["plus-line"]
       },
       "attrs": [
         {
@@ -438,9 +412,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": [
-          "save-line"
-        ]
+        "tags": ["save-line"]
       },
       "attrs": [
         {
@@ -486,9 +458,7 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": [
-          "tag-line"
-        ]
+        "tags": ["tag-line"]
       },
       "attrs": [
         {
@@ -524,12 +494,7 @@
         "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "tags": [
-          "twitter",
-          "brand",
-          "tweet",
-          "social"
-        ],
+        "tags": ["twitter", "brand", "tweet", "social"],
         "defaultCode": 60054,
         "grid": 16
       },
@@ -554,12 +519,7 @@
         "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
-        "tags": [
-          "github",
-          "brand",
-          "octacat",
-          "social"
-        ],
+        "tags": ["github", "brand", "octacat", "social"],
         "defaultCode": 60080,
         "grid": 16
       },
