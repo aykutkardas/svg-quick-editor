@@ -99,3 +99,25 @@
   height: 14px;
   fill: #c9c1be;
 }
+
+.Social {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Social a {
+  color: white;
+  text-decoration: none;
+  opacity: 1;
+  transition: 0.2;
+}
+
+.Social a:hover {
+  opacity: 0.8;
+}
+
+.Social svg {
+  margin: 8px;
+}

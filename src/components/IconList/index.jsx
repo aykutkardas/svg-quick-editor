@@ -66,6 +66,15 @@ const IconList = () => {
           </div>
         ))}
       </Scrollbars>
+      <h4 className={styles.IconListTitle}>Social</h4>
+      <div className={styles.Social}>
+        <a href="https://github.com/aykutkardas/svg-quick-editor" target="_blank" rel="noreferrer">
+          <Icon size={18} icon="github" />
+        </a>
+        <a href="https://twitter.com/aykutkardas" target="_blank" rel="noreferrer">
+          <Icon size={18} icon="twitter" />
+        </a>
+      </div>
     </div>
   );
 };
