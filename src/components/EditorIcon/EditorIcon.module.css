@@ -8,8 +8,8 @@
 }
 
 .EditorIconSVG {
-  width: 500px !important;
-  height: 500px !important;
+  max-width: 500px;
+  max-height: 500px;
   border: 1px solid #333;
   fill: #fff;
 }

@@ -23,7 +23,12 @@ const EditorIcon = () => {
     <div data-testid="EditorIcon" className={styles.EditorIcon}>
       {file && (
         <div className={styles.EditorIconFrame}>
-          <svg className={styles.EditorIconSVG} viewBox={file.viewBox}>
+          <svg
+            className={styles.EditorIconSVG}
+            width={file.width}
+            height={file.height}
+            viewBox={file.viewBox}
+          >
             {file.paths.map((path, index) => (
               <path
                 key={path + index + (file.fills[index] || '')}
