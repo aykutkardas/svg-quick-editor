@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import cx from 'classnames';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 import * as styles from './IconList.module.css';
 
@@ -29,41 +30,42 @@ const IconList = () => {
 
   return (
     <div data-testid="IconList" className={styles.IconList}>
-      <h4 className={styles.IconListMainTitle}>
-        <img src="/favicon.svg" width={22} alt="zap" />
-        SVG Quick Action
-      </h4>
+      <div className={styles.IconListLogo}>
+        <img src="/logo.png" alt="zap" />
+      </div>
       <UploadButton className={styles.IconListItem} />
       <ImportButton className={styles.IconListItem} />
       <ExportButton className={styles.IconListItem} />
       <h4 className={styles.IconListTitle}>
         Files <span>{Object.keys(files).length}</span>
       </h4>
-      {Object.values(files).map((file, index) => (
-        <div
-          data-testid={`IconListItem${index + 1}`}
-          key={file.name}
-          className={cx(styles.IconListItem, {
-            [styles.IconListItemActive]: file.name === selectedFile,
-          })}
-          onClick={() => setSelectedFile(file.name)}
-        >
-          <span
-            className={styles.IconListItemIcon}
-            dangerouslySetInnerHTML={{ __html: file.content }}
-          />
-          <span className={styles.IconListItemFileName}>{file.name}</span>
-          <span className={styles.IconListItemAction}>
-            <DownloadButton file={file} />
-            <Icon
-              className={styles.IconListItemRemoveIcon}
-              size={18}
-              icon="multiply"
-              onClick={event => handleDelete(file, event)}
+      <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
+        {Object.values(files).map((file, index) => (
+          <div
+            data-testid={`IconListItem${index + 1}`}
+            key={file.name}
+            className={cx(styles.IconListItem, {
+              [styles.IconListItemActive]: file.name === selectedFile,
+            })}
+            onClick={() => setSelectedFile(file.name)}
+          >
+            <span
+              className={styles.IconListItemIcon}
+              dangerouslySetInnerHTML={{ __html: file.content }}
             />
-          </span>
-        </div>
-      ))}
+            <span className={styles.IconListItemFileName}>{file.name}</span>
+            <span className={styles.IconListItemAction}>
+              <DownloadButton file={file} />
+              <Icon
+                className={styles.IconListItemRemoveIcon}
+                size={18}
+                icon="multiply"
+                onClick={event => handleDelete(file, event)}
+              />
+            </span>
+          </div>
+        ))}
+      </Scrollbars>
     </div>
   );
 };

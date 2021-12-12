@@ -1,6 +1,7 @@
 .UploadButton {
-  font-size: 12px !important;
+  font-size: 12px;
   user-select: none;
+  width: 100%;
 }
 
 .UploadButton label {

@@ -11,60 +11,6 @@
   border-right: 1px solid #333;
 }
 
-.IconListItem {
-  font-size: 14px;
-  cursor: pointer;
-  min-height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0 8px;
-  width: 100%;
-  color: #c8c3bc;
-  white-space: nowrap;
-}
-
-.IconListItem :global(.download-button) {
-  display: none;
-}
-
-.IconListItem:hover,
-.IconListItemActive {
-  background-color: #23272e;
-}
-
-.IconListItemRemoveIcon {
-  color: #aaa;
-  display: none !important;
-}
-
-.IconListItemRemoveIcon:hover {
-  color: #eee;
-}
-
-.IconListItemFileName {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 150px;
-}
-
-.IconListItemAction {
-  display: inline-flex;
-  align-items: center;
-  margin-left: auto;
-  margin-right: 20px;
-  width: 35px;
-  justify-content: space-between;
-}
-
-.IconListItem:hover :global(.download-button),
-.IconListItemActive :global(.download-button),
-.IconListItem:hover .IconListItemRemoveIcon,
-.IconListItemActive .IconListItemRemoveIcon {
-  display: block !important;
-}
-
 .IconListTitle {
   font-size: 11px;
   margin: 0;
@@ -81,16 +27,63 @@
   margin-left: 5px;
 }
 
-.IconListMainTitle {
+.IconListLogo {
   composes: IconListTitle;
   height: 50px;
-  color: #f372d5;
-  font-weight: normal;
-  padding: 0 8px;
-  font-size: 14px;
+  padding: 8px 3px;
   display: flex;
   align-items: center;
   user-select: none;
+}
+
+.IconListItem {
+  font-size: 14px;
+  cursor: pointer;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 8px;
+  color: #c8c3bc;
+  white-space: nowrap;
+  background-color: transparent;
+}
+
+.IconListItem:hover,
+.IconListItemActive {
+  background-color: #23272e;
+}
+
+.IconListItemRemoveIcon {
+  color: #aaa;
+}
+
+.IconListItemRemoveIcon:hover {
+  color: #eee;
+}
+
+.IconListItemFileName {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.IconListItemAction {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 10px;
+  width: 40px;
+  justify-content: space-between;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.IconListItem:hover .IconListItemAction,
+.IconListItemActiv .IconListItemAction {
+  visibility: visible;
+  pointer-events: all;
 }
 
 .IconListItemIcon {

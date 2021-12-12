@@ -69,7 +69,7 @@ const EditorTool = () => {
         <span>{file?.paths?.length || 0}</span>
       </div>
       <div className={styles.EditorToolItems}>
-        <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
+        <Scrollbars autoHide style={{ width: 'auto', height: '100%' }}>
           {file?.paths.map((path, index) => (
             <div
               key={path + index}

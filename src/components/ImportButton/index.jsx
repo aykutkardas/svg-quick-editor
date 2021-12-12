@@ -19,7 +19,7 @@ const ImportButton = ({ className }) => {
   return (
     <div data-testid="ImportButton" className={cx(className, styles.ImportButton)}>
       <label htmlFor="import-input">
-        <Icon icon="arrow-up" size={24} /> Import JSON
+        <Icon icon="arrow-up" size={16} /> Import JSON
         <input
           id="import-input"
           type="file"
