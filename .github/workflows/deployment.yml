@@ -1,6 +1,9 @@
 name: Deploy Website
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -11,8 +14,10 @@ jobs:
       - name: Install surge and fire deployment
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
+          cache: 'yarn'
       - run: yarn install
       - run: yarn build
+      - run: yarn test
       - run: npm install -g surge
       - run: surge ./build ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
