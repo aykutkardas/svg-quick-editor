@@ -11,6 +11,16 @@ wait processing times. Everything happens instantly.
 
 ![Preview](/preview.png)
 
+## Shortcuts
+
+| Action       | Key                 |
+| ------------ | ------------------- |
+| Add Files    | `CTRL+O` \| `CMD+O` |
+| Save File    | `CTRL+S` \| `CMD+S` |
+| Import JSON  | `CTRL+I` \| `CMD+I` |
+| Export JSON  | `CTRL+E` \| `CMD+E` |
+| Close Picker | `ESC`               |
+
 ## Development
 
 Pull requests are encouraged and always welcome.
