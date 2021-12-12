@@ -1,7 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { HexColorPicker } from 'react-colorful';
 import { Scrollbars } from 'react-custom-scrollbars';
-import OutsideClickHandler from 'react-outside-click-handler';
 
 import Icon from '../Icon';
 import ColorGroups from '../ColorGroups';
