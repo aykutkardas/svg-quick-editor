@@ -18,7 +18,7 @@ const Editor = () => {
   }, []);
 
   return (
-    <div className={styles.Editor}>
+    <div data-testid="Editor" className={styles.Editor}>
       <IconList />
       <div className={styles.EditorIconArea}>
         <EditorIcon />
