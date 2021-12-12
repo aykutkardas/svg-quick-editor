@@ -20,7 +20,7 @@ const EditorIcon = () => {
   };
 
   return (
-    <div className={styles.EditorIcon}>
+    <div data-testid="EditorIcon" className={styles.EditorIcon}>
       {file && (
         <div className={styles.EditorIconFrame}>
           <svg className={styles.EditorIconSVG} viewBox={file.viewBox}>
