@@ -4,7 +4,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import OutsideClickHandler from 'react-outside-click-handler';
 
 import Icon from '../Icon';
-import ColorGroups from '../ColorGorups';
+import ColorGroups from '../ColorGroups';
 import ColorPicker from '../ColorPicker';
 
 import { Context } from '../../contexts/FilesContext';

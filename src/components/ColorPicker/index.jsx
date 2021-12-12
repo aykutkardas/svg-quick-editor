@@ -15,8 +15,6 @@ const ColorGroups = ({ closePicker, positions, color, handleColor }) => {
     };
   };
 
-  console.log({ color });
-
   return (
     <div className={styles.ColorPicker} style={getColorWheelPosition(positions)}>
       <OutsideClickHandler onOutsideClick={closePicker}>
