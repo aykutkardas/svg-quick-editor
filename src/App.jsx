@@ -7,7 +7,7 @@ import { Provider as FilesProvider } from './contexts/FilesContext';
 function App() {
   return (
     <FilesProvider>
-      <div className="App">
+      <div data-testid="App" className="App">
         <Editor />
       </div>
     </FilesProvider>

@@ -1,18 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('Test IconList component', () => {
+test('Test App component', () => {
   render(<App />);
-  const addSVGFilesEl = screen.getByText(/Add SVG Files/i);
-  const importJSONEl = screen.getByText(/Import JSON/i);
-  expect(addSVGFilesEl).toBeInTheDocument();
-  expect(importJSONEl).toBeInTheDocument();
-});
 
-test('Test EditorTool component', () => {
-  render(<App />);
-  const colorGroupsTitleEl = screen.getByText(/Color Groups/i);
-  const pathsTitleEl = screen.getByText(/Paths/i);
-  expect(colorGroupsTitleEl).toBeInTheDocument();
-  expect(pathsTitleEl).toBeInTheDocument();
+  const AppComponent = screen.getByTestId('App');
+  const EditorToolComponent = screen.getByTestId('EditorTool');
+  const IconListComponent = screen.getByTestId('IconList');
+  const EditorIconComponent = screen.getByTestId('EditorIcon');
+  const ColorGroupsComponent = screen.getByTestId('ColorGroups');
+
+  expect(AppComponent).toBeInTheDocument();
+  expect(EditorToolComponent).toBeInTheDocument();
+  expect(IconListComponent).toBeInTheDocument();
+  expect(EditorIconComponent).toBeInTheDocument();
+  expect(ColorGroupsComponent).toBeInTheDocument();
 });
