@@ -17,11 +17,11 @@ const UploadButton = ({ className }) => {
   };
 
   return (
-    <div className={cx(className, styles.UploadButton)}>
-      <label htmlFor="file-input">
+    <div data-testid="UploadButton" className={cx(className, styles.UploadButton)}>
+      <label htmlFor="upload-input">
         <Icon icon="plus" size={16} /> Add SVG Files
         <input
-          id="file-input"
+          id="upload-input"
           type="file"
           multiple
           accept="image/svg+xml"
