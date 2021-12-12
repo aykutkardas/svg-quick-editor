@@ -17,7 +17,7 @@ const ImportButton = ({ className }) => {
   };
 
   return (
-    <div className={cx(className, styles.ImportButton)}>
+    <div data-testid="ImportButton" className={cx(className, styles.ImportButton)}>
       <label htmlFor="import-input">
         <Icon icon="arrow-up" size={24} /> Import JSON
         <input
