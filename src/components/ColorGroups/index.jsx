@@ -3,6 +3,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import xor from 'lodash.xor';
 
 import ColorPicker from '../ColorPicker';
+import ColorCircle from '../ColorCircle';
 
 import { Context } from '../../contexts/FilesContext';
 
@@ -48,10 +49,9 @@ const ColorGroups = ({ file, setFile }) => {
           {xor(file?.fills).map((fill, index) => (
             <div key={`${index}-${fill}`} className={styles.ColorGroupsItem}>
               <div className={styles.ColorGroupsItemColor}>
-                <div
+                <ColorCircle
+                  color={fill}
                   onClick={event => toggleColorGroup(fill || '#eee', event)}
-                  className={styles.ColorGroupsItemColorWheel}
-                  style={{ backgroundColor: fill || '#eee' }}
                 />
               </div>
               <div className={styles.ColorGroupsItemTitle}>

@@ -4,6 +4,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import Icon from '../Icon';
 import ColorGroups from '../ColorGroups';
 import ColorPicker from '../ColorPicker';
+import ColorCircle from '../ColorCircle';
 
 import { Context } from '../../contexts/FilesContext';
 
@@ -79,10 +80,9 @@ const EditorTool = () => {
               onMouseLeave={handleMouseLeave}
             >
               <div className={styles.EditorToolItemColor}>
-                <div
+                <ColorCircle
                   onClick={event => toggleColor(file?.fills[index] || '#eee', event)}
-                  className={styles.EditorToolItemColorWheel}
-                  style={{ backgroundColor: file?.fills[index] || '#eee' }}
+                  color={file?.fills[index]}
                 />
               </div>
               <div className={styles.EditorToolItemTitle}>Path {index + 1}</div>

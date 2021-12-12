@@ -53,7 +53,6 @@
 .ColorGroupsItemTitle {
   margin-right: 20px;
   color: #fff;
-  user-select: none;
   display: flex;
 }
 
@@ -61,13 +60,6 @@
   margin-left: 5px;
   color: #aaa;
   font-size: 10px;
-}
-
-.ColorGroupsItemColorWheel {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  cursor: pointer;
 }
 
 .ColorGroupsItemColorPicker {
