@@ -38,7 +38,7 @@ const ColorGroups = ({ file, setFile }) => {
   };
 
   return (
-    <div className={styles.ColorGroups}>
+    <div data-testid="ColorGroups" className={styles.ColorGroups}>
       <div className={styles.ColorGroupsTitle}>
         Color Groups <span>{xor(file?.fills).length || 0}</span>
       </div>
