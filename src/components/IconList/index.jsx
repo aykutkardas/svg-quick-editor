@@ -28,7 +28,7 @@ const IconList = () => {
   };
 
   return (
-    <div className={styles.IconList}>
+    <div data-testid="IconList" className={styles.IconList}>
       <h4 className={styles.IconListMainTitle}>
         <img src="/favicon.svg" width={22} alt="zap" />
         SVG Quick Action
@@ -41,6 +41,7 @@ const IconList = () => {
       </h4>
       {Object.values(files).map(file => (
         <div
+          data-testid="IconListItem"
           key={file.name}
           className={cx(styles.IconListItem, {
             [styles.IconListItemActive]: file.name === selectedFile,
