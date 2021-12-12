@@ -54,4 +54,4 @@ yarn test
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/aykutkardas/svg-quick-editor/blob/main/LICENSE)
