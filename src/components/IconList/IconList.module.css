@@ -83,12 +83,14 @@
 
 .IconListMainTitle {
   composes: IconListTitle;
-  height: 30px;
+  height: 50px;
   color: #f372d5;
   font-weight: normal;
   padding: 0 8px;
+  font-size: 14px;
   display: flex;
   align-items: center;
+  user-select: none;
 }
 
 .IconListItemIcon {

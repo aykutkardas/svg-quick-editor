@@ -3,10 +3,10 @@ import cx from 'classnames';
 
 import * as styles from './IconList.module.css';
 
-import Upload from '../Upload';
+import Icon from '../Icon';
+import UploadButton from '../UploadButton';
 import ImportButton from '../ImportButton';
 import ExportButton from '../ExportButton';
-import Icon from '../Icon';
 import DownloadButton from '../DownloadButton';
 
 import { Context } from '../../contexts/FilesContext';
@@ -29,8 +29,11 @@ const IconList = () => {
 
   return (
     <div className={styles.IconList}>
-      <h4 className={styles.IconListMainTitle}>SVG-QUICK-EDITOR</h4>
-      <Upload className={styles.IconListItem} />
+      <h4 className={styles.IconListMainTitle}>
+        <img src="/favicon.svg" width={22} alt="zap" />
+        SVG Quick Action
+      </h4>
+      <UploadButton className={styles.IconListItem} />
       <ImportButton className={styles.IconListItem} />
       <ExportButton className={styles.IconListItem} />
       <h4 className={styles.IconListTitle}>

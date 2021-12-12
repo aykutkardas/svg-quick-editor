@@ -1,20 +1,21 @@
-.Upload {
+.UploadButton {
   font-size: 12px !important;
   user-select: none;
 }
 
-.Upload label {
+.UploadButton label {
   width: 100%;
   cursor: pointer;
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
-.Upload svg {
+.UploadButton svg {
   margin-right: 5px;
 }
 
-.Upload input {
+.UploadButton input {
   position: absolute;
   visibility: hidden;
   pointer-events: none;

@@ -3,11 +3,11 @@ import cx from 'classnames';
 
 import getSelectedFiles from '../../utils/getSelectedFiles';
 import { Context } from '../../contexts/FilesContext';
-import Icon from '../../components/Icon';
+import Icon from '../Icon';
 
-import * as styles from './Upload.module.css';
+import * as styles from './UploadButton.module.css';
 
-const Upload = ({ className }) => {
+const UploadButton = ({ className }) => {
   const inputRef = useRef();
   const { files, setFiles } = useContext(Context);
 
@@ -17,9 +17,9 @@ const Upload = ({ className }) => {
   };
 
   return (
-    <div className={cx(className, styles.Upload)}>
+    <div className={cx(className, styles.UploadButton)}>
       <label htmlFor="file-input">
-        <Icon icon="plus" size={16} /> Add Files
+        <Icon icon="plus" size={16} /> Add SVG Files
         <input
           id="file-input"
           type="file"
@@ -33,4 +33,4 @@ const Upload = ({ className }) => {
   );
 };
 
-export default Upload;
+export default UploadButton;
