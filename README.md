@@ -1,4 +1,4 @@
-# SVG Quick Action
+# SVG Quick Editor
 
 [![Build Status](https://github.com/aykutkardas/svg-quick-editor/workflows/build/badge.svg?color=%25234fc921)](https://github.com/aykutkardas/svg-quick-editor/actions)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?color=%234fc921)](https://opensource.org/licenses/MIT)
@@ -37,7 +37,7 @@ yarn
 ```
 
 > Do not use NPM to install the dependencies, as the specific package versions in `yarn.lock` are
-> used to build and test SVG Quick Action.
+> used to build and test SVG Quick Editor.
 
 You are now ready to develop and watch changes. Running this command will start the project and you
 can view it at `http://localhost:3000/`
