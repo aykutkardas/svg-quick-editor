@@ -7,6 +7,8 @@
 SVG colors, viewing or deleting their paths. Files don't have upload and download times, you don't
 wait processing times. Everything happens instantly.
 
+![Preview](/preview.png)
+
 ## Development
 
 Pull requests are encouraged and always welcome.
