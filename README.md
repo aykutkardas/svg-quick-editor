@@ -13,14 +13,12 @@ wait processing times. Everything happens instantly.
 
 ## Shortcuts
 
-| Action       | Key                   |
-| ------------ | --------------------- |
-| Add Files    | `CTRL+O` \| `CMD+O`   |
-| Save File    | `CTRL+S` \| `CMD+S`   |
-| Close File   | `ALT+Q` \| `OPTION+Q` |
-| Import JSON  | `CTRL+I` \| `CMD+I`   |
-| Export JSON  | `CTRL+E` \| `CMD+E`   |
-| Close Picker | `ESC`                 |
+- Add Files: `CTRL+O` | `CMD+O`
+- Save File: `CTRL+S` | `CMD+S`
+- Close File: `ALT+Q` | `OPTION+Q`
+- Import JSON: `CTRL+I` | `CMD+I`
+- Export JSON: `CTRL+E` | `CMD+E`
+- Close Picker: `ESC`
 
 ## Development
 
