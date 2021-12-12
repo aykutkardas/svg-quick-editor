@@ -1,7 +1,7 @@
 .Editor {
   width: 100%;
   height: 100vh;
-  background-color: #20232a;
+  background-color: var(--bg-3);
   display: flex;
   margin: 0;
   overflow: hidden;

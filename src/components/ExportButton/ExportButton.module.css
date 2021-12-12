@@ -6,10 +6,10 @@
 }
 
 .ExportButton svg {
-  color: #aaa;
+  color: var(--txt-5);
   margin-right: 5px;
 }
 
 .ExportButton:hover svg {
-  color: #eee;
+  opacity: 0.8;
 }

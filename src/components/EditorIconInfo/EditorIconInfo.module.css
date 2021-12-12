@@ -1,7 +1,7 @@
 .EditorIconInfo {
   font-size: 11px;
   margin-left: auto;
-  color: #777;
+  color: var(--txt-4);
 }
 
 .EditorIconInfo span {

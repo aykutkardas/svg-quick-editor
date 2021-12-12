@@ -6,9 +6,9 @@
 }
 
 .DownloadButton svg {
-  color: #aaa;
+  color: var(--txt-5);
 }
 
 .DownloadButton:hover svg {
-  color: #eee;
+  opacity: 0.8;
 }

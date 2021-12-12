@@ -6,10 +6,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background: #1a1e22;
+  background: var(--bg-2);
   overflow-y: auto;
   overflow-x: hidden;
-  border-right: 1px solid #333;
+  border-right: 1px solid var(--border-1);
   z-index: 1;
 }
 
@@ -17,15 +17,15 @@
   font-size: 11px;
   margin: 0;
   width: 100%;
-  background-color: #20232a;
-  color: #bdc3bc;
+  background-color: var(--bg-3);
+  color: var(--txt-3);
   font-weight: normal;
   padding: 0 8px;
   line-height: 22px;
 }
 
 .IconListTitle span {
-  color: #777;
+  color: var(--txt-4);
   margin-left: 5px;
 }
 
@@ -46,22 +46,22 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0 8px;
-  color: #c8c3bc;
+  color: var(--txt-2);
   white-space: nowrap;
   background-color: transparent;
 }
 
 .IconListItem:hover,
 .IconListItemActive {
-  background-color: #23272e;
+  background-color: var(--bg-4);
 }
 
 .IconListItemRemoveIcon {
-  color: #aaa;
+  color: var(--txt-5);
 }
 
 .IconListItemRemoveIcon:hover {
-  color: #eee;
+  opacity: 0.8;
 }
 
 .IconListItemFileName {
@@ -106,7 +106,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #20232a;
+  background-color: var(--bg-3);
 }
 
 .Social a {

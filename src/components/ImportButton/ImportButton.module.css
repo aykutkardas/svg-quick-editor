@@ -8,12 +8,12 @@
 }
 
 .ImportButton svg {
-  color: #aaa;
+  color: var(--txt-5);
   margin-right: 5px;
 }
 
 .ImportButton:hover svg {
-  color: #eee;
+  opacity: 0.8;
 }
 
 .ImportButton input {

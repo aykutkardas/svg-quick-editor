@@ -10,7 +10,7 @@
 .EditorIconSVG {
   max-width: 500px;
   max-height: 500px;
-  border: 1px solid #333;
+  border: 1px solid var(--border-1);
   margin: 10px;
 }
 
