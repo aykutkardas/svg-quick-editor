@@ -3,13 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider as FilesProvider } from './contexts/FilesContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <FilesProvider>
-      <App />
-    </FilesProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root'),
 );
