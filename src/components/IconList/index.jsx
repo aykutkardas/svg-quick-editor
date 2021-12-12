@@ -11,6 +11,7 @@ import ExportButton from '../ExportButton';
 import DownloadButton from '../DownloadButton';
 
 import { Context } from '../../contexts/FilesContext';
+import convertToSVG from '../../utils/convertToSVG';
 
 const IconList = () => {
   const { files, setFiles, selectedFile, setSelectedFile } = useContext(Context);
@@ -51,7 +52,7 @@ const IconList = () => {
           >
             <span
               className={styles.IconListItemIcon}
-              dangerouslySetInnerHTML={{ __html: file.content }}
+              dangerouslySetInnerHTML={{ __html: convertToSVG(file) }}
             />
             <span className={styles.IconListItemFileName}>{file.name}</span>
             <span className={styles.IconListItemAction}>
