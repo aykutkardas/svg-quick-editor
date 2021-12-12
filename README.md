@@ -9,7 +9,7 @@ wait processing times. Everything happens instantly.
 
 ## [Go to **SVG Quick Editor**](https://svg-quick-editor.surge.sh/)
 
-![Preview](/preview.png)
+![Preview](https://github.com/aykutkardas/svg-quick-editor/raw/main/preview.png)
 
 ## Shortcuts
 
