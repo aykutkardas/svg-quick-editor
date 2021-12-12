@@ -3,8 +3,8 @@ import EditorIconInfo from './index';
 
 test('Test EditorIconInfo component', () => {
   render(<EditorIconInfo file={{}} />);
-  const editorInfoEl = screen.getByTestId('EditorIconInfo');
-  expect(editorInfoEl).toBeInTheDocument();
+  const component = screen.getByTestId('EditorIconInfo');
+  expect(component).toBeInTheDocument();
 });
 
 test('Test EditorIconInfo component with values', () => {
