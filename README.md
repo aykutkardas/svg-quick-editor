@@ -7,6 +7,8 @@
 SVG colors, viewing or deleting their paths. Files don't have upload and download times, you don't
 wait processing times. Everything happens instantly.
 
+## [Go to **SVG Quick Editor**](https://svg-quick-editor.surge.sh/)
+
 ![Preview](/preview.png)
 
 ## Development
