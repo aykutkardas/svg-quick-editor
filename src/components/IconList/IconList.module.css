@@ -85,7 +85,7 @@
 }
 
 .IconListItem:hover .IconListItemAction,
-.IconListItemActiv .IconListItemAction {
+.IconListItemActive .IconListItemAction {
   visibility: visible;
   pointer-events: all;
 }
