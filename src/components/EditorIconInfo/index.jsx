@@ -7,14 +7,15 @@ import convertToSVG from '../../utils/convertToSVG';
 import * as styles from './EditorIconInfo.module.css';
 
 const EditorIconInfo = ({ file }) => {
+  if (!file) return null;
   const fileContentLength = convertToSVG(file)?.length || 0;
 
-  const size = file && file.width && file.height ? `${file.width}x${file.height}` : null;
+  const size = file.width && file.height ? `${file.width}x${file.height}` : null;
 
-  const fileSize = file && fileContentLength ? filesize(fileContentLength) : null;
+  const fileSize = fileContentLength ? filesize(fileContentLength) : null;
 
   return (
-    <span className={styles.EditorIconInfo}>
+    <span data-testid="EditorIconInfo" className={styles.EditorIconInfo}>
       <span>
         <Icon icon="tag" size={14} />
         {file.name}
