@@ -2,10 +2,10 @@ import { render, screen } from '@testing-library/react';
 import App from './../../App';
 
 test('Test IconList component without Files', () => {
-  const { container } = render(<App />);
+  render(<App />);
 
-  const component = screen.getByTestId('IconList');
-  expect(component).toBeInTheDocument();
+  const IconListComponent = screen.getByTestId('IconList');
+  expect(IconListComponent).toBeInTheDocument();
 
   const brandEl = screen.getAllByText('SVG Quick Action');
   expect(brandEl.length).toBe(1);
@@ -13,6 +13,6 @@ test('Test IconList component without Files', () => {
   const filesTitleEl = screen.getAllByText('Files');
   expect(filesTitleEl.length).toBe(1);
 
-  const filesItemEls = container.querySelector("[data-testid='IconListItem']");
-  expect(filesItemEls).toBe(null);
+  const IconListItemComponent = screen.getByTestId('IconListItem1');
+  expect(IconListItemComponent).toBeInTheDocument();
 });

@@ -39,9 +39,9 @@ const IconList = () => {
       <h4 className={styles.IconListTitle}>
         Files <span>{Object.keys(files).length}</span>
       </h4>
-      {Object.values(files).map(file => (
+      {Object.values(files).map((file, index) => (
         <div
-          data-testid="IconListItem"
+          data-testid={`IconListItem${index + 1}`}
           key={file.name}
           className={cx(styles.IconListItem, {
             [styles.IconListItemActive]: file.name === selectedFile,

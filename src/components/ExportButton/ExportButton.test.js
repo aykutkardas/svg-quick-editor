@@ -1,14 +1,9 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './../../App';
-import ExportButton from './index';
 
 test('Test ExportButton component without Files', () => {
-  const { container } = render(
-    <App>
-      <ExportButton />
-    </App>,
-  );
+  render(<App />);
 
-  const component = container.querySelector('[data-testid="ExportButton"]');
-  expect(component).toBe(null);
+  const component = screen.getByTestId('ExportButton');
+  expect(component).toBeInTheDocument();
 });
