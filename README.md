@@ -7,6 +7,8 @@
 SVG colors, viewing or deleting their paths. Files don't have upload and download times, you don't
 wait processing times. Everything happens instantly.
 
+### 🎉 Vote this project on [#ucbuyucuturnuvasi Hackathon](https://ucbuyucuturnuvasi.com/projeler/svg-quick-editor) 🎉
+
 ## [Go to **SVG Quick Editor**](https://svg-quick-editor.surge.sh/)
 
 ![Preview](https://github.com/aykutkardas/svg-quick-editor/raw/main/preview.png)
