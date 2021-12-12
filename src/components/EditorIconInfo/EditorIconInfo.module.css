@@ -1,8 +1,6 @@
 .EditorIconInfo {
   font-size: 11px;
-  position: absolute;
-  right: 0;
-  bottom: -15px;
+  margin-left: auto;
   color: #777;
 }
 
