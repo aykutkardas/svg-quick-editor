@@ -1,8 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('Test IconList component', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const addSVGFilesEl = screen.getByText(/Add SVG Files/i);
+  const importJSONEl = screen.getByText(/Import JSON/i);
+  expect(addSVGFilesEl).toBeInTheDocument();
+  expect(importJSONEl).toBeInTheDocument();
+});
+
+test('Test EditorTool component', () => {
+  render(<App />);
+  const colorGroupsTitleEl = screen.getByText(/Color Groups/i);
+  const pathsTitleEl = screen.getByText(/Paths/i);
+  expect(colorGroupsTitleEl).toBeInTheDocument();
+  expect(pathsTitleEl).toBeInTheDocument();
 });
