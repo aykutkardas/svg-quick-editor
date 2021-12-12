@@ -1,11 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import cx from 'classnames';
+import hotkeys from 'hotkeys-js';
 
 import EditorIconInfo from '../EditorIconInfo';
 
 import { Context } from '../../contexts/FilesContext';
 
+import shortcuts from '../../shortcuts';
+
 import * as styles from './EditorIcon.module.css';
+import convertToSVG from '../../utils/convertToSVG';
 
 const EditorIcon = () => {
   const { files, selectedFile, getSelectedFile, activePathIndex } = useContext(Context);
@@ -13,10 +17,25 @@ const EditorIcon = () => {
 
   useEffect(() => {
     setFile(getSelectedFile(selectedFile));
+    hotkeys(shortcuts.saveFile, e => saveFile(e, getSelectedFile(selectedFile)));
+
+    return () => hotkeys.unbind(shortcuts.saveFile);
   }, [selectedFile, files]);
 
   const isCurrentPath = (activePathIndex, index) => {
     return typeof activePathIndex === 'number' ? activePathIndex === index : true;
+  };
+
+  const saveFile = (event, file) => {
+    event.preventDefault();
+    if (!file) return;
+    const content = convertToSVG(file);
+
+    var dataStr = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(content);
+    var downloadElement = document.createElement('a');
+    downloadElement.setAttribute('href', dataStr);
+    downloadElement.setAttribute('download', file.name);
+    downloadElement.click();
   };
 
   return (
