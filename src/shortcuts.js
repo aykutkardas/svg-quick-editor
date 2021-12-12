@@ -3,7 +3,7 @@ const shortcuts = {
   addFiles: 'ctrl+o',
   importJSON: 'ctrl+i',
   exportJSON: 'ctrl+e',
-  closeFile: 'ctrl+w',
+  closeFile: 'ctrl+q',
   saveFile: 'ctrl+s',
 };
 

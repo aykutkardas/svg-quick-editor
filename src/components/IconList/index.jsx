@@ -14,19 +14,12 @@ import { Context } from '../../contexts/FilesContext';
 import convertToSVG from '../../utils/convertToSVG';
 
 const IconList = () => {
-  const { files, setFiles, selectedFile, setSelectedFile } = useContext(Context);
+  const { files, deleteFile, selectedFile, setSelectedFile } = useContext(Context);
 
   const handleDelete = (file, event) => {
     event.stopPropagation();
 
-    if (!file) return;
-
-    const isConfirm = window.confirm('Are you sure?');
-
-    if (!isConfirm) return;
-
-    delete files[file.name];
-    setFiles(files);
+    deleteFile(file);
   };
 
   return (

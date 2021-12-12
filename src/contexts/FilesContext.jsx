@@ -19,12 +19,24 @@ function Provider({ children }) {
     lookie.set('files', newFiles);
   };
 
+  const deleteFile = file => {
+    if (!file) return;
+
+    const isConfirm = window.confirm(`Are you sure you want to delete file "${file.name}?"`);
+
+    if (!isConfirm) return;
+
+    delete files[file.name];
+    setFiles(files);
+  };
+
   return (
     <Context.Provider
       value={{
         files,
         selectedFile,
         activePathIndex,
+        deleteFile,
         setFiles,
         setSelectedFile,
         getSelectedFile,

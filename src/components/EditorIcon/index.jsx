@@ -12,23 +12,14 @@ import * as styles from './EditorIcon.module.css';
 import convertToSVG from '../../utils/convertToSVG';
 
 const EditorIcon = () => {
-  const { files, selectedFile, getSelectedFile, activePathIndex } = useContext(Context);
+  const { files, deleteFile, selectedFile, getSelectedFile, activePathIndex } = useContext(Context);
   const [file, setFile] = useState(getSelectedFile(selectedFile));
-
-  useEffect(() => {
-    setFile(getSelectedFile(selectedFile));
-    hotkeys(shortcuts.saveFile, e => saveFile(e, getSelectedFile(selectedFile)));
-
-    return () => hotkeys.unbind(shortcuts.saveFile);
-  }, [selectedFile, files]);
-
-  const isCurrentPath = (activePathIndex, index) => {
-    return typeof activePathIndex === 'number' ? activePathIndex === index : true;
-  };
 
   const saveFile = (event, file) => {
     event.preventDefault();
+
     if (!file) return;
+
     const content = convertToSVG(file);
 
     var dataStr = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(content);
@@ -36,6 +27,27 @@ const EditorIcon = () => {
     downloadElement.setAttribute('href', dataStr);
     downloadElement.setAttribute('download', file.name);
     downloadElement.click();
+  };
+
+  const handleDeleteFile = (event, file) => {
+    event.preventDefault();
+
+    deleteFile(file);
+  };
+
+  useEffect(() => {
+    setFile(getSelectedFile(selectedFile));
+    hotkeys(shortcuts.saveFile, e => saveFile(e, getSelectedFile(selectedFile)));
+    hotkeys(shortcuts.closeFile, e => handleDeleteFile(e, getSelectedFile(selectedFile)));
+
+    return () => {
+      hotkeys.unbind(shortcuts.saveFile);
+      hotkeys.unbind(shortcuts.closeFile);
+    };
+  }, [selectedFile, files]);
+
+  const isCurrentPath = (activePathIndex, index) => {
+    return typeof activePathIndex === 'number' ? activePathIndex === index : true;
   };
 
   return (
