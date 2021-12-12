@@ -24,6 +24,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: nowrap;
   background: #1a1e22;
   font-size: 12px;
 }
@@ -46,7 +47,7 @@
   align-items: center;
   justify-content: center;
   padding-left: 10px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .ColorGroupsItemTitle {

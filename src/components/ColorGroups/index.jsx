@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { Scrollbars } from 'react-custom-scrollbars';
 import xor from 'lodash.xor';
 
 import ColorPicker from '../ColorPicker';
@@ -42,22 +43,24 @@ const ColorGroups = ({ file, setFile }) => {
       <div className={styles.ColorGroupsTitle}>
         Color Groups <span>{xor(file?.fills).length || 0}</span>
       </div>
-      <div className={styles.ColorGroupsItems}>
-        {xor(file?.fills).map((fill, index) => (
-          <div key={`${index}-${fill}`} className={styles.ColorGroupsItem}>
-            <div className={styles.ColorGroupsItemColor}>
-              <div
-                onClick={event => toggleColorGroup(fill || '#eee', event)}
-                className={styles.ColorGroupsItemColorWheel}
-                style={{ backgroundColor: fill || '#eee' }}
-              />
+      <Scrollbars autoHide style={{ width: '100%', height: '50px' }}>
+        <div className={styles.ColorGroupsItems}>
+          {xor(file?.fills).map((fill, index) => (
+            <div key={`${index}-${fill}`} className={styles.ColorGroupsItem}>
+              <div className={styles.ColorGroupsItemColor}>
+                <div
+                  onClick={event => toggleColorGroup(fill || '#eee', event)}
+                  className={styles.ColorGroupsItemColorWheel}
+                  style={{ backgroundColor: fill || '#eee' }}
+                />
+              </div>
+              <div className={styles.ColorGroupsItemTitle}>
+                {(fill || '#EEEEEE').toUpperCase()} <span>{getColorCount(file, fill)}</span>
+              </div>
             </div>
-            <div className={styles.ColorGroupsItemTitle}>
-              {(fill || '#EEEEEE').toUpperCase()} <span>{getColorCount(file, fill)}</span>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Scrollbars>
       {openPicker && (
         <ColorPicker
           color={color}

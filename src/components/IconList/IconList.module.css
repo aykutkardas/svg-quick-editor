@@ -1,5 +1,6 @@
 .IconList {
-  width: 300px;
+  width: 250px;
+  min-width: 250px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -9,6 +10,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   border-right: 1px solid #333;
+  z-index: 1;
 }
 
 .IconListTitle {
@@ -73,11 +75,13 @@
   display: inline-flex;
   align-items: center;
   margin-left: auto;
-  margin-right: 10px;
-  width: 40px;
   justify-content: space-between;
   visibility: hidden;
   pointer-events: none;
+}
+
+.IconListItemAction svg {
+  margin-left: 5px;
 }
 
 .IconListItem:hover .IconListItemAction,

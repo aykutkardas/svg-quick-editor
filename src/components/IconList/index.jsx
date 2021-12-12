@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import cx from 'classnames';
 import { Scrollbars } from 'react-custom-scrollbars';
+import cx from 'classnames';
 
 import * as styles from './IconList.module.css';
 
