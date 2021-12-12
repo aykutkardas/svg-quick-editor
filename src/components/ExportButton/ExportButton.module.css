@@ -3,6 +3,7 @@
   border: 0;
   font-size: 12px;
   cursor: pointer;
+  position: relative;
 }
 
 .ExportButton svg {
@@ -12,4 +13,13 @@
 
 .ExportButton:hover svg {
   opacity: 0.8;
+}
+
+.ExportButton span {
+  color: var(--txt-4);
+  position: absolute;
+  right: 12px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: right;
 }
