@@ -11,7 +11,13 @@ wait processing times. Everything happens instantly.
 
 ## [Go to **SVG Quick Editor**](https://svg-quick-editor.surge.sh/)
 
+### Preview
+
 ![Preview](https://github.com/aykutkardas/svg-quick-editor/raw/main/preview.png)
+
+### Check Video
+
+[![Preview Video](https://github.com/aykutkardas/svg-quick-editor/raw/main/preview-video.png)](https://www.youtube.com/watch?v=Ytx4I2U7zpM)
 
 ## Shortcuts
 
