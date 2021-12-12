@@ -5,6 +5,7 @@ import * as styles from './ColorPicker.module.css';
 
 const ColorGroups = ({ closePicker, positions, color, handleColor }) => {
   const getColorWheelPosition = positions => {
+    if (!positions) return;
     const verticalOffset = 10;
     const horizontalOffset = 290;
     const [top = 0, left = 0] = positions;
@@ -15,9 +16,17 @@ const ColorGroups = ({ closePicker, positions, color, handleColor }) => {
     };
   };
 
+  const handleClose = () => {
+    closePicker?.();
+  };
+
   return (
-    <div className={styles.ColorPicker} style={getColorWheelPosition(positions)}>
-      <OutsideClickHandler onOutsideClick={closePicker}>
+    <div
+      data-testid="ColorPicker"
+      className={styles.ColorPicker}
+      style={getColorWheelPosition(positions)}
+    >
+      <OutsideClickHandler onOutsideClick={handleClose}>
         <HexColorPicker color={color} onChange={handleColor} />
       </OutsideClickHandler>
     </div>
