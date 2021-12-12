@@ -7,8 +7,8 @@ test('Test IconList component without Files', () => {
   const IconListComponent = screen.getByTestId('IconList');
   expect(IconListComponent).toBeInTheDocument();
 
-  const brandEl = screen.getAllByText('SVG Quick Action');
-  expect(brandEl.length).toBe(1);
+  const brandEl = screen.getByAltText('zap');
+  expect(brandEl).toBeInTheDocument();
 
   const filesTitleEl = screen.getAllByText('Files');
   expect(filesTitleEl.length).toBe(1);
