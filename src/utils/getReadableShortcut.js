@@ -5,7 +5,7 @@ const getReadableShortcut = shortcut => {
 
   return shortcut
     .replace(/\+/g, ' + ')
-    .replace(/ctrl/g, isMacOS ? 'command' : 'ctrl')
+    .replace(/ctrl/g, isMacOS ? 'cmd' : 'ctrl')
     .replace(/alt/g, isMacOS ? 'option' : 'alt')
     .toUpperCase();
 };
