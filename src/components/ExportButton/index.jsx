@@ -21,7 +21,11 @@ const ExportButton = ({ className }) => {
   };
 
   return Object.keys(files).length > 0 ? (
-    <button className={cx(className, styles.ExportButton)} onClick={onClick}>
+    <button
+      data-testid="ExportButton"
+      className={cx(className, styles.ExportButton)}
+      onClick={onClick}
+    >
       <Icon icon="arrow-down" size={16} /> Export JSON
     </button>
   ) : null;
