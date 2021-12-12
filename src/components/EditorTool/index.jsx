@@ -62,7 +62,7 @@ const EditorTool = () => {
   }, [selectedFile, files]);
 
   return (
-    <div className={styles.EditorTool} key={selectedFile}>
+    <div data-testid="EditorTool" className={styles.EditorTool} key={selectedFile}>
       <ColorGroups file={file} setFile={setFile} />
       <div className={styles.EditorToolTitle}>
         Paths
