@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import xor from 'lodash.xor';
-import { HexColorPicker } from 'react-colorful';
-import OutsideClickHandler from 'react-outside-click-handler';
+
+import ColorPicker from '../ColorPicker';
 
 import { Context } from '../../contexts/FilesContext';
 
@@ -11,41 +11,30 @@ import * as styles from './ColorGroups.module.css';
 
 const ColorGroups = ({ file, setFile }) => {
   const { files, setFiles } = useContext(Context);
-  const [openColorGroup, setOpenColorGroup] = useState(false);
-  const [colorGroup, setColorGroup] = useState();
+  const [openPicker, setOpenPicker] = useState(false);
+  const [color, setColor] = useState();
   const [positions, setPositions] = useState([0, 0]);
 
-  const toggleColorGroup = (colorGroup, { screenX, screenY }) => {
+  const toggleColorGroup = (color, { screenX, screenY }) => {
     setPositions([screenY, screenX]);
-    setColorGroup(colorGroup);
-    setOpenColorGroup(!openColorGroup);
+    setColor(color);
+    setOpenPicker(!openPicker);
   };
 
-  const closeColor = () => {
-    setOpenColorGroup(false);
+  const closePicker = () => {
+    setOpenPicker(false);
   };
 
-  const handleColorGroup = color => {
+  const handleColorGroup = newColor => {
     if (!file) return;
-    file.fills = file.fills?.map(fill => (fill === colorGroup ? color : fill));
+    file.fills = file.fills?.map(fill => (fill === color ? newColor : fill));
 
-    setColorGroup(color);
+    setColor(newColor);
     setFile(file);
 
     files[file.name] = file;
 
     setFiles(files);
-  };
-
-  const getColorWheelPosition = positions => {
-    const verticalOffset = 10;
-    const horizontalOffset = 290;
-    const [top = 0, left = 0] = positions;
-
-    return {
-      top: top - horizontalOffset,
-      left: left + verticalOffset,
-    };
   };
 
   return (
@@ -69,11 +58,14 @@ const ColorGroups = ({ file, setFile }) => {
           </div>
         ))}
       </div>
-      <div className={styles.ColorGroupsItemColorPicker} style={getColorWheelPosition(positions)}>
-        <OutsideClickHandler onOutsideClick={closeColor}>
-          {openColorGroup && <HexColorPicker color={colorGroup} onChange={handleColorGroup} />}
-        </OutsideClickHandler>
-      </div>
+      {openPicker && (
+        <ColorPicker
+          color={color}
+          handleColor={handleColorGroup}
+          closePicker={closePicker}
+          positions={positions}
+        />
+      )}
     </div>
   );
 };

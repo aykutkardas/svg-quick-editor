@@ -3,19 +3,22 @@ import { HexColorPicker } from 'react-colorful';
 import { Scrollbars } from 'react-custom-scrollbars';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-import * as styles from './EditorTool.module.css';
-
-import { Context } from '../../contexts/FilesContext';
 import Icon from '../Icon';
 import ColorGroups from '../ColorGorups';
+import ColorPicker from '../ColorPicker';
+
+import { Context } from '../../contexts/FilesContext';
+
 import removePath from '../../utils/removePathByIndex';
+
+import * as styles from './EditorTool.module.css';
 
 const EditorTool = () => {
   const { files, setFiles, selectedFile, getSelectedFile, setActivePathIndex } =
     useContext(Context);
   const [file, setFile] = useState(getSelectedFile(selectedFile));
   const [color, setColor] = useState();
-  const [openColor, setOpenColor] = useState(false);
+  const [openPicker, setOpenPicker] = useState(false);
   const [positions, setPositions] = useState([0, 0]);
 
   const [currentPathIndex, setCurrentPathIndex] = useState(null);
@@ -23,11 +26,11 @@ const EditorTool = () => {
   const toggleColor = (color, { screenX, screenY }) => {
     setPositions([screenY, screenX]);
     setColor(color);
-    setOpenColor(!openColor);
+    setOpenPicker(!openPicker);
   };
 
-  const closeColor = () => {
-    setOpenColor(false);
+  const closePicker = () => {
+    setOpenPicker(false);
   };
 
   const handleColor = color => {
@@ -59,17 +62,6 @@ const EditorTool = () => {
     setFile(getSelectedFile(selectedFile));
     setActivePathIndex(null);
   }, [selectedFile, files]);
-
-  const getColorWheelPosition = positions => {
-    const verticalOffset = 10;
-    const horizontalOffset = 290;
-    const [top = 0, left = 0] = positions;
-
-    return {
-      top: top - horizontalOffset,
-      left: left + verticalOffset,
-    };
-  };
 
   return (
     <div className={styles.EditorTool} key={selectedFile}>
@@ -109,11 +101,14 @@ const EditorTool = () => {
           ))}
         </Scrollbars>
       </div>
-      <div className={styles.EditorToolColorPicker} style={getColorWheelPosition(positions)}>
-        <OutsideClickHandler onOutsideClick={closeColor}>
-          {openColor && <HexColorPicker color={color} onChange={handleColor} />}
-        </OutsideClickHandler>
-      </div>
+      {openPicker && (
+        <ColorPicker
+          color={color}
+          handleColor={handleColor}
+          closePicker={closePicker}
+          positions={positions}
+        />
+      )}
     </div>
   );
 };

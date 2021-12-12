@@ -1,0 +1,4 @@
+.ColorPicker {
+  position: absolute;
+  bottom: calc(130px + 30px);
+}
