@@ -67,7 +67,7 @@ const EditorIcon = () => {
                 key={path + index + (file.fills[index] || '')}
                 d={path}
                 fill={file.fills[index] || '#999'}
-                className={cx('opacity-100 transition-opacity duration-200', {
+                className={cx('transition-opacity duration-200', {
                   'opacity-10': !isCurrentPath(activePathIndex, index),
                 })}
               />
