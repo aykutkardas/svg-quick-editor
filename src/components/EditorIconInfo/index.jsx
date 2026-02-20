@@ -17,7 +17,7 @@ const EditorIconInfo = ({ file }) => {
   const fileSize = fileContentLength ? filesize(fileContentLength) : null;
 
   return (
-    <span data-testid="EditorIconInfo" className="text-[11px] ml-auto text-txt-4">
+    <span data-testid="EditorIconInfo" className="text-sm ml-auto text-neutral-400">
       <span className="ml-[15px] inline-flex items-center">
         <Tag size={14} className="mr-[5px]" />
         {truncateName(file.name)}

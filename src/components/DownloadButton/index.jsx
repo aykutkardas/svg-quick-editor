@@ -18,7 +18,7 @@ const DownloadButton = ({ file }) => {
       className="bg-transparent border-0 p-0 cursor-pointer hover:opacity-80"
       onClick={onClick}
     >
-      <Save size={16} className="text-txt-5" />
+      <Save size={16} className="text-neutral-400" />
     </button>
   ) : null;
 };

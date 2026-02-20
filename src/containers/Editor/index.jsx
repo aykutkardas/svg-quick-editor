@@ -26,12 +26,12 @@ const Editor = () => {
   return (
     <div
       data-testid="Editor"
-      className="w-full h-screen bg-surface-1 flex gap-[20px] p-[20px] m-0 overflow-hidden"
+      className="w-full h-screen bg-neutral-900 flex gap-[20px] p-[20px] m-0 overflow-hidden"
     >
       <IconList />
       <div className="flex flex-col items-start w-full gap-[20px] min-w-0">
         <EditorIcon />
-        <div className="w-full shrink-0 bg-surface-2 rounded-xl overflow-hidden border border-t-edge-t border-x-edge-x border-b-edge-b px-4 py-3 flex items-center">
+        <div className="w-full shrink-0 bg-neutral-800 rounded-xl overflow-hidden border border-t-neutral-600 border-x-neutral-700 border-b-neutral-900 px-4 py-3 flex items-center">
           <EditorIconInfo file={file} />
           <div className="ml-auto">
             <DownloadButton file={file} />
@@ -39,7 +39,7 @@ const Editor = () => {
         </div>
       </div>
       <div className="flex flex-col gap-[20px] min-w-[280px] w-[280px]">
-        <div className="w-full bg-surface-2 rounded-xl overflow-hidden border border-t-edge-t border-x-edge-x border-b-edge-b">
+        <div className="w-full bg-neutral-800 rounded-xl overflow-hidden border border-t-neutral-600 border-x-neutral-700 border-b-neutral-900">
           <ColorGroups file={file} setFile={setFile} />
         </div>
         <EditorTool file={file} setFile={setFile} />

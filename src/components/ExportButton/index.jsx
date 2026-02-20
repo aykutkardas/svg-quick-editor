@@ -36,7 +36,7 @@ const ExportButton = ({ className }) => {
       className={cx(className, 'w-full border-0 text-xs cursor-pointer relative')}
       onClick={onClick}
     >
-      <Upload size={16} className="shrink-0 mr-[5px] text-txt-5" />{' '}
+      <Upload size={16} className="shrink-0 mr-[5px] text-neutral-400" />{' '}
       <span className="w-full text-left">Export JSON</span>
       <span className="flex items-center gap-1 ml-auto">
         {getReadableShortcut(shortcuts.exportJSON)

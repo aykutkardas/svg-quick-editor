@@ -50,12 +50,12 @@ const EditorIcon = () => {
   return (
     <div
       data-testid="EditorIcon"
-      className="flex items-center justify-center w-full flex-1 min-h-0 relative bg-surface-2 rounded-xl border border-t-edge-t border-x-edge-x border-b-edge-b"
+      className="flex items-center justify-center w-full flex-1 min-h-0 relative bg-neutral-800 rounded-xl border border-t-neutral-600 border-x-neutral-700 border-b-neutral-900"
     >
       {file && (
         <div className="w-[80%] h-[80%] relative flex items-center justify-center">
           <svg
-            className="max-w-full max-h-full border border-panel rounded transparency-grid"
+            className="max-w-full max-h-full border border-neutral-700 rounded transparency-grid"
             viewBox={file.viewBox}
             style={{ aspectRatio: `${file.width} / ${file.height}` }}
           >

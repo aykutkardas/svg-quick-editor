@@ -7,7 +7,7 @@ function App() {
     <FilesProvider>
       <div
         data-testid="App"
-        className="bg-surface-1 min-h-screen flex flex-col items-center justify-center text-white"
+        className="bg-neutral-900 min-h-screen flex flex-col items-center justify-center text-white"
       >
         <Editor />
       </div>

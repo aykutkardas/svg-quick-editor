@@ -35,7 +35,7 @@ const ImportButton = ({ className }) => {
         htmlFor="import-input"
         className="w-full cursor-pointer flex items-center h-full relative"
       >
-        <Download size={16} className="shrink-0 mr-[5px] text-txt-5" />{' '}
+        <Download size={16} className="shrink-0 mr-[5px] text-neutral-400" />{' '}
         <span className="w-full">Import JSON</span>
         <span className="flex items-center gap-1 ml-auto">
           {getReadableShortcut(shortcuts.importJSON)

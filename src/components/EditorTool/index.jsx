@@ -127,21 +127,21 @@ const EditorTool = ({ file, setFile }) => {
   return (
     <div
       data-testid="EditorTool"
-      className="w-full min-w-0 flex-1 flex flex-col justify-start items-start bg-surface-2 rounded-xl overflow-hidden z-[1] border border-t-edge-t border-x-edge-x border-b-edge-b"
+      className="w-full min-w-0 flex-1 flex flex-col justify-start items-start bg-neutral-800 rounded-xl overflow-hidden z-[1] border border-t-neutral-600 border-x-neutral-700 border-b-neutral-900"
       key={selectedFile}
     >
-      <div className="text-[11px] m-0 w-full bg-surface-3 text-txt-3 font-normal px-3 py-2 leading-[22px]">
+      <div className="text-[11px] m-0 w-full bg-neutral-900 text-neutral-500 font-normal px-3 py-2 leading-[22px]">
         Paths
-        <span className="text-txt-4 ml-[5px]">{file?.paths?.length || 0}</span>
+        <span className="text-neutral-600 ml-[5px]">{file?.paths?.length || 0}</span>
       </div>
-      <div className="w-full h-full flex flex-col justify-start items-start bg-surface-2">
+      <div className="w-full h-full flex flex-col justify-start items-start bg-neutral-800">
         <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
           {sortedIndices.map(index => {
             const path = file.paths[index];
             return (
               <div
                 key={path + index}
-                className="group h-[30px] text-xs whitespace-nowrap overflow-hidden max-w-full w-full border-b border-panel flex items-center hover:bg-surface-4 transition-colors duration-150"
+                className="group h-[30px] text-xs whitespace-nowrap overflow-hidden max-w-full w-full border-b border-neutral-700 flex items-center hover:bg-neutral-700 transition-colors duration-150"
                 onClick={() => setCurrentPathIndex(index)}
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
@@ -154,10 +154,10 @@ const EditorTool = ({ file, setFile }) => {
                 </div>
 
                 <PathPreview d={path} fill={file?.fills[index] || '#a1a1aa'} />
-                <div className="pr-2.5 w-full text-txt-6 overflow-x-hidden flex items-center">
+                <div className="pr-2.5 w-full text-neutral-700 overflow-x-hidden flex items-center">
                   <span className="w-full overflow-hidden leading-[30px] select-none">{path}</span>
                   <Trash2
-                    className="text-txt-5 ml-auto hidden group-hover:block cursor-pointer hover:opacity-80"
+                    className="text-neutral-400 ml-auto hidden group-hover:block cursor-pointer hover:opacity-80"
                     size={16}
                     onClick={() => handleRemovePath(index)}
                   />
