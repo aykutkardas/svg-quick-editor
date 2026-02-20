@@ -4,7 +4,9 @@ import lookie from 'lookie';
 import IconList from '../../components/IconList';
 import EditorTool from '../../components/EditorTool';
 import EditorIcon from '../../components/EditorIcon';
+import EditorIconInfo from '../../components/EditorIconInfo';
 import ColorGroups from '../../components/ColorGroups';
+import DownloadButton from '../../components/DownloadButton';
 
 import { Context } from '../../contexts/FilesContext';
 
@@ -29,11 +31,19 @@ const Editor = () => {
       <IconList />
       <div className="flex flex-col justify-between items-start w-full gap-[20px] min-w-0">
         <EditorIcon />
+        <div className="w-full bg-surface-2 rounded-xl overflow-hidden border border-t-edge-t border-x-edge-x border-b-edge-b px-4 py-3 flex items-center">
+          <EditorIconInfo file={file} />
+          <div className="ml-auto">
+            <DownloadButton file={file} />
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-[20px] min-w-[280px] w-[280px]">
         <div className="w-full bg-surface-2 rounded-xl overflow-hidden border border-t-edge-t border-x-edge-x border-b-edge-b">
           <ColorGroups file={file} setFile={setFile} />
         </div>
+        <EditorTool file={file} setFile={setFile} />
       </div>
-      <EditorTool file={file} setFile={setFile} />
     </div>
   );
 };

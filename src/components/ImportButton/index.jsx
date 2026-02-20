@@ -35,9 +35,14 @@ const ImportButton = ({ className }) => {
         htmlFor="import-input"
         className="w-full cursor-pointer flex items-center h-full relative"
       >
-        <Download size={16} className="shrink-0 mr-[5px] text-txt-5" /> Import JSON
-        <span className="text-txt-4 absolute right-5 text-[10px] font-bold text-right opacity-40">
-          {getReadableShortcut(shortcuts.importJSON)}
+        <Download size={16} className="shrink-0 mr-[5px] text-txt-5" />{' '}
+        <span className="w-full">Import JSON</span>
+        <span className="flex items-center gap-1 ml-auto">
+          {getReadableShortcut(shortcuts.importJSON)
+            .split(' + ')
+            .map((key, i) => (
+              <kbd key={i}>{key}</kbd>
+            ))}
         </span>
         <input
           id="import-input"
@@ -45,7 +50,7 @@ const ImportButton = ({ className }) => {
           accept="application/json"
           ref={inputRef}
           onChange={handleFileInput}
-          className="invisible pointer-events-none"
+          className="invisible pointer-events-none w-0"
         />
       </label>
     </div>

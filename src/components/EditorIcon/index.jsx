@@ -2,8 +2,6 @@ import { useContext, useEffect, useState } from 'react';
 import cx from 'classnames';
 import hotkeys from 'hotkeys-js';
 
-import EditorIconInfo from '../EditorIconInfo';
-
 import { Context } from '../../contexts/FilesContext';
 
 import shortcuts from '../../shortcuts';
@@ -55,9 +53,9 @@ const EditorIcon = () => {
       className="flex items-center justify-center w-full h-full relative bg-surface-2 rounded-xl border border-t-edge-t border-x-edge-x border-b-edge-b"
     >
       {file && (
-        <div className="w-[80%] h-[80%] relative flex items-center justify-center flex-col">
+        <div className="w-[80%] h-[80%] relative flex items-center justify-center">
           <svg
-            className="max-w-full max-h-[calc(100%-2rem)] border border-panel rounded transparency-grid"
+            className="max-w-full max-h-full border border-panel rounded transparency-grid"
             viewBox={file.viewBox}
             style={{ aspectRatio: `${file.width} / ${file.height}` }}
           >
@@ -72,7 +70,6 @@ const EditorIcon = () => {
               />
             ))}
           </svg>
-          <EditorIconInfo file={file} />
         </div>
       )}
     </div>

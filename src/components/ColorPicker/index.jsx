@@ -5,19 +5,7 @@ import hotkeys from 'hotkeys-js';
 import { useEffect } from 'react';
 import shortcuts from '../../shortcuts';
 
-const ColorGroups = ({ closePicker, positions, color, handleColor }) => {
-  const getColorWheelPosition = positions => {
-    if (!positions) return;
-    const verticalOffset = 10;
-    const horizontalOffset = 290;
-    const [top = 0, left = 0] = positions;
-
-    return {
-      top: top - horizontalOffset,
-      left: left + verticalOffset,
-    };
-  };
-
+const ColorPickerPopup = ({ closePicker, positions, color, handleColor }) => {
   const handleClose = () => {
     closePicker?.();
   };
@@ -28,11 +16,16 @@ const ColorGroups = ({ closePicker, positions, color, handleColor }) => {
     return () => hotkeys.unbind(shortcuts.close);
   }, []);
 
+  const [screenY = 0, screenX = 0] = positions || [];
+
   return (
     <div
       data-testid="ColorPicker"
-      className="absolute bottom-[calc(130px+30px)] h-[200px]"
-      style={getColorWheelPosition(positions)}
+      className="fixed z-50"
+      style={{
+        top: screenY - 150,
+        left: screenX - 420,
+      }}
     >
       <OutsideClickHandler onOutsideClick={handleClose}>
         <HexColorPicker color={color} onChange={handleColor} />
@@ -41,4 +34,4 @@ const ColorGroups = ({ closePicker, positions, color, handleColor }) => {
   );
 };
 
-export default ColorGroups;
+export default ColorPickerPopup;

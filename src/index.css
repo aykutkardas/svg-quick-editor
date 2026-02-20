@@ -24,25 +24,43 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #404040;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #525252;
 }
 
 ::selection {
   background: rgba(93, 228, 199, 0.2);
-  color: #d4d4d8;
+  color: #e5e5e5;
+}
+
+kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: #262626;
+  border: 1px solid #404040;
+  border-bottom-width: 2px;
+  color: #737373;
 }
 
 .transparency-grid {
-  background-color: #141416;
-  background-image: linear-gradient(45deg, #1c1c1f 25%, transparent 25%),
-    linear-gradient(-45deg, #1c1c1f 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #1c1c1f 75%),
-    linear-gradient(-45deg, transparent 75%, #1c1c1f 75%);
+  background-color: #1c1c1c;
+  background-image: linear-gradient(45deg, #262626 25%, transparent 25%),
+    linear-gradient(-45deg, #262626 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #262626 75%),
+    linear-gradient(-45deg, transparent 75%, #262626 75%);
   background-size: 16px 16px;
   background-position: 0 0, 0 8px, 8px -8px, -8px 0;
 }

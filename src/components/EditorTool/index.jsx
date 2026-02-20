@@ -127,7 +127,7 @@ const EditorTool = ({ file, setFile }) => {
   return (
     <div
       data-testid="EditorTool"
-      className="w-[280px] min-w-[280px] h-full flex flex-col justify-start items-start bg-surface-2 rounded-xl overflow-hidden z-[1] border border-t-edge-t border-x-edge-x border-b-edge-b"
+      className="w-full min-w-0 flex-1 flex flex-col justify-start items-start bg-surface-2 rounded-xl overflow-hidden z-[1] border border-t-edge-t border-x-edge-x border-b-edge-b"
       key={selectedFile}
     >
       <div className="text-[11px] m-0 w-full bg-surface-3 text-txt-3 font-normal px-3 py-2 leading-[22px]">
