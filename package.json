@@ -6,9 +6,6 @@
     "email": "aykutkrds@gmail.com"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "classnames": "^2.3.1",
     "hotkeys-js": "^3.8.7",
     "lodash.xor": "^4.5.0",
@@ -34,14 +31,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
