@@ -1,5 +1,3 @@
-import * as styles from './ColorCircle.module.css';
-
 const ColorCircle = ({ onClick, color = '#EEEEEE' }) => {
   const handleClick = event => {
     onClick?.(event);
@@ -8,7 +6,7 @@ const ColorCircle = ({ onClick, color = '#EEEEEE' }) => {
   return (
     <div
       onClick={handleClick}
-      className={styles.ColorCircle}
+      className="w-5 h-5 rounded-full cursor-pointer"
       style={{
         backgroundColor: color,
         background: `linear-gradient(45deg, ${color}FF 0%, ${color}B3 100%)`,

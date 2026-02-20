@@ -8,7 +8,6 @@ import { Context } from '../../contexts/FilesContext';
 
 import shortcuts from '../../shortcuts';
 
-import * as styles from './EditorIcon.module.css';
 import convertToSVG from '../../utils/convertToSVG';
 
 const EditorIcon = () => {
@@ -51,11 +50,14 @@ const EditorIcon = () => {
   };
 
   return (
-    <div data-testid="EditorIcon" className={styles.EditorIcon}>
+    <div
+      data-testid="EditorIcon"
+      className="flex items-center justify-center w-full h-full relative"
+    >
       {file && (
-        <div className={styles.EditorIconFrame}>
+        <div className="w-[500px] h-[500px] relative flex items-center justify-between flex-col py-2.5 px-5">
           <svg
-            className={styles.EditorIconSVG}
+            className="w-[500px] h-[500px] border border-panel m-2.5"
             width={file.width}
             height={file.height}
             viewBox={file.viewBox}
@@ -65,8 +67,8 @@ const EditorIcon = () => {
                 key={path + index + (file.fills[index] || '')}
                 d={path}
                 fill={file.fills[index] || '#999'}
-                className={cx(styles.EditorCurrentIconPath, {
-                  [styles.EditorCurrentIconPathPassive]: !isCurrentPath(activePathIndex, index),
+                className={cx('opacity-100 transition-opacity duration-200', {
+                  'opacity-10': !isCurrentPath(activePathIndex, index),
                 })}
               />
             ))}

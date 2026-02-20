@@ -8,7 +8,6 @@ import { Context } from '../../contexts/FilesContext';
 
 import shortcuts from '../../shortcuts';
 
-import * as styles from './ExportButton.module.css';
 import getReadableShortcut from '../../utils/getReadableShortcut';
 
 const ExportButton = ({ className }) => {
@@ -34,11 +33,16 @@ const ExportButton = ({ className }) => {
   return Object.keys(files).length > 0 ? (
     <button
       data-testid="ExportButton"
-      className={cx(className, styles.ExportButton)}
+      className={cx(
+        className,
+        'w-full border-0 text-xs cursor-pointer relative [&_svg]:text-txt-5 [&_svg]:mr-[5px] hover:[&_svg]:opacity-80',
+      )}
       onClick={onClick}
     >
       <Icon icon="arrow-down" size={16} /> Export JSON
-      <span>{getReadableShortcut(shortcuts.exportJSON)}</span>
+      <span className="text-txt-4 absolute right-3 text-[10px] font-bold text-right opacity-40">
+        {getReadableShortcut(shortcuts.exportJSON)}
+      </span>
     </button>
   ) : null;
 };

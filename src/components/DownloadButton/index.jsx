@@ -1,8 +1,5 @@
-import cx from 'classnames';
 import Icon from '../../components/Icon';
 import convertToSVG from '../../utils/convertToSVG';
-
-import * as styles from './DownloadButton.module.css';
 
 const DownloadButton = ({ file }) => {
   const onClick = () => {
@@ -18,7 +15,7 @@ const DownloadButton = ({ file }) => {
   return file ? (
     <button
       data-testid="DownloadButton"
-      className={cx('download-button', styles.DownloadButton)}
+      className="bg-transparent border-0 p-0 cursor-pointer [&_svg]:text-txt-5 hover:[&_svg]:opacity-80"
       onClick={onClick}
     >
       <Icon icon="save" size={16} />

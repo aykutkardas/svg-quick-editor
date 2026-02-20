@@ -9,7 +9,6 @@ import { Context } from '../../contexts/FilesContext';
 
 import shortcuts from '../../shortcuts';
 
-import * as styles from './UploadButton.module.css';
 import getReadableShortcut from '../../utils/getReadableShortcut';
 
 const UploadButton = ({ className }) => {
@@ -31,10 +30,15 @@ const UploadButton = ({ className }) => {
   }, []);
 
   return (
-    <div data-testid="UploadButton" className={cx(className, styles.UploadButton)}>
-      <label htmlFor="upload-input">
-        <Icon icon="plus" size={16} /> Add SVG Files
-        <span>{getReadableShortcut(shortcuts.addFiles)}</span>
+    <div data-testid="UploadButton" className={cx(className, 'text-xs select-none w-full')}>
+      <label
+        htmlFor="upload-input"
+        className="w-full cursor-pointer flex items-center h-full relative"
+      >
+        <Icon icon="plus" size={16} className="mr-[5px]" /> Add SVG Files
+        <span className="text-txt-4 absolute right-[18px] text-[10px] font-bold opacity-40">
+          {getReadableShortcut(shortcuts.addFiles)}
+        </span>
         <input
           id="upload-input"
           type="file"
@@ -42,6 +46,7 @@ const UploadButton = ({ className }) => {
           accept="image/svg+xml"
           ref={inputRef}
           onChange={handleFileInput}
+          className="absolute invisible pointer-events-none"
         />
       </label>
     </div>

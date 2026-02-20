@@ -10,8 +10,6 @@ import { Context } from '../../contexts/FilesContext';
 
 import removePath from '../../utils/removePathByIndex';
 
-import * as styles from './EditorTool.module.css';
-
 const EditorTool = () => {
   const { files, setFiles, selectedFile, getSelectedFile, setActivePathIndex } =
     useContext(Context);
@@ -63,33 +61,37 @@ const EditorTool = () => {
   }, [selectedFile, files]);
 
   return (
-    <div data-testid="EditorTool" className={styles.EditorTool} key={selectedFile}>
+    <div
+      data-testid="EditorTool"
+      className="w-full h-[400px] border-t border-panel flex flex-col justify-start items-start bg-surface-2 z-[1]"
+      key={selectedFile}
+    >
       <ColorGroups file={file} setFile={setFile} />
-      <div className={styles.EditorToolTitle}>
+      <div className="text-[11px] m-0 w-full bg-surface-3 text-txt-3 font-normal px-2 leading-[22px]">
         Paths
-        <span>{file?.paths?.length || 0}</span>
+        <span className="text-txt-4 ml-[5px]">{file?.paths?.length || 0}</span>
       </div>
-      <div className={styles.EditorToolItems}>
+      <div className="w-full h-full flex flex-col justify-start items-start bg-surface-2">
         <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
           {file?.paths.map((path, index) => (
             <div
               key={path + index}
-              className={styles.EditorToolItem}
+              className="group h-[30px] text-xs whitespace-nowrap overflow-hidden max-w-full w-full border-b border-panel flex items-center hover:bg-surface-4"
               onClick={() => setCurrentPathIndex(index)}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
             >
-              <div className={styles.EditorToolItemColor}>
+              <div className="w-[30px] h-full flex items-center justify-center pl-2.5 mr-2.5">
                 <ColorCircle
                   onClick={event => toggleColor(file?.fills[index] || '#eee', event)}
                   color={file?.fills[index]}
                 />
               </div>
-              <div className={styles.EditorToolItemTitle}>Path {index + 1}</div>
-              <div className={styles.EditorToolItemValue}>
-                <span>{path}</span>
+              <div className="mr-5 text-txt-1 select-none flex">Path {index + 1}</div>
+              <div className="pr-2.5 w-full text-txt-6 overflow-x-hidden flex items-center">
+                <span className="w-full overflow-hidden leading-[30px] select-none">{path}</span>
                 <Icon
-                  className={styles.EditorToolRemoveIcon}
+                  className="text-txt-5 ml-auto pl-2.5 !hidden group-hover:!block cursor-pointer hover:opacity-80"
                   size={16}
                   icon="delete-bin"
                   onClick={() => handleRemovePath(index)}

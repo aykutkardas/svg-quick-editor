@@ -5,8 +5,6 @@ import IconList from '../../components/IconList';
 import EditorTool from '../../components/EditorTool';
 import EditorIcon from '../../components/EditorIcon';
 
-import * as styles from './Editor.module.css';
-
 import { Context } from '../../contexts/FilesContext';
 
 const Editor = () => {
@@ -18,9 +16,9 @@ const Editor = () => {
   }, []);
 
   return (
-    <div data-testid="Editor" className={styles.Editor}>
+    <div data-testid="Editor" className="w-full h-screen bg-surface-3 flex m-0 overflow-hidden">
       <IconList />
-      <div className={styles.EditorIconArea}>
+      <div className="flex flex-col justify-between items-start w-full">
         <EditorIcon />
         <EditorTool />
       </div>

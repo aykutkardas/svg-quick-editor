@@ -2,7 +2,6 @@ import { HexColorPicker } from 'react-colorful';
 import OutsideClickHandler from 'react-outside-click-handler';
 import hotkeys from 'hotkeys-js';
 
-import * as styles from './ColorPicker.module.css';
 import { useEffect } from 'react';
 import shortcuts from '../../shortcuts';
 
@@ -32,7 +31,7 @@ const ColorGroups = ({ closePicker, positions, color, handleColor }) => {
   return (
     <div
       data-testid="ColorPicker"
-      className={styles.ColorPicker}
+      className="absolute bottom-[calc(130px+30px)] h-[200px]"
       style={getColorWheelPosition(positions)}
     >
       <OutsideClickHandler onOutsideClick={handleClose}>
