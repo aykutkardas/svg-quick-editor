@@ -10,6 +10,7 @@ import DownloadButton from '../DownloadButton';
 
 import { Context } from '../../contexts/FilesContext';
 import convertToSVG from '../../utils/convertToSVG';
+import truncateName from '../../utils/truncateName';
 
 const IconList = () => {
   const { files, deleteFile, selectedFile, setSelectedFile } = useContext(Context);
@@ -36,7 +37,7 @@ const IconList = () => {
         className="w-full shrink-0 flex items-center gap-2 px-3 py-2.5 bg-gradient-to-r from-teal-500/10 to-violet-500/10 hover:from-teal-500/20 hover:to-violet-500/20 border-b border-neutral-700 no-underline transition-all duration-200 group/gen"
       >
         <Sparkles size={14} className="text-teal-300 shrink-0 group-hover/gen:animate-pulse" />
-        <span className="text-xs flex items-center gap-1 font-medium bg-gradient-to-r from-teal-300 to-violet-400 bg-clip-text text-transparent">
+        <span className="text-sm flex items-center gap-1 font-medium bg-gradient-to-r from-teal-300 to-violet-400 bg-clip-text text-transparent">
           Generate SVG on fal.ai
           <ExternalLink size={11} className="shrink-0 text-violet-400" />
         </span>
@@ -68,8 +69,8 @@ const IconList = () => {
               className="mr-2 [&_svg]:w-3.5 [&_svg]:h-3.5 [&_svg]:fill-neutral-400"
               dangerouslySetInnerHTML={{ __html: convertToSVG(file) }}
             />
-            <span className="text-ellipsis whitespace-nowrap overflow-hidden w-full">
-              {file.name}
+            <span className="whitespace-nowrap overflow-hidden w-full">
+              {truncateName(file.name)}
             </span>
             <span className="inline-flex items-center ml-auto justify-between invisible pointer-events-none group-hover:visible group-hover:pointer-events-auto [&_svg]:ml-[5px]">
               <DownloadButton file={file} />

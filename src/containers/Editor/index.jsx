@@ -39,7 +39,7 @@ const Editor = () => {
         <EditorIcon />
         <div className="w-full shrink-0 bg-neutral-800 rounded-xl border border-t-neutral-600 border-x-neutral-700 border-b-neutral-700 shadow-lg shadow-black/20 px-4 py-3 flex items-center">
           <EditorIconInfo file={file} />
-          <div className="ml-auto">
+          <div className="ml-auto bg-blue-600 hover:bg-blue-500 [&_svg]:text-white transition-colors duration-150 rounded-lg px-3 py-1.5 border-blue-600 hover:border-blue-500">
             <DownloadButton file={file} />
           </div>
         </div>
