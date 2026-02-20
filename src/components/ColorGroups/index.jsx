@@ -42,7 +42,7 @@ const GroupPreview = ({ file, fill }) => {
 };
 
 const ColorGroups = ({ file, setFile }) => {
-  const { files, setFiles } = useContext(Context);
+  const { files, setFiles, setActiveColor } = useContext(Context);
   const [openPicker, setOpenPicker] = useState(false);
   const [color, setColor] = useState();
   const [positions, setPositions] = useState([0, 0]);
@@ -81,6 +81,8 @@ const ColorGroups = ({ file, setFile }) => {
           <div
             key={`${index}-${fill}`}
             className="w-full min-h-[30px] flex items-center border-b border-neutral-700 hover:bg-neutral-700 transition-colors duration-150"
+            onMouseEnter={() => setActiveColor(fill)}
+            onMouseLeave={() => setActiveColor(null)}
           >
             <div className="w-[30px] h-full flex items-center justify-center pl-2.5 mr-2.5">
               <ColorCircle

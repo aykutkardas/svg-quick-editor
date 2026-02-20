@@ -12,6 +12,7 @@ function Provider({ children }) {
   const [files, _setFiles] = useState(demoFiles);
   const [selectedFile, setSelectedFile] = useState(null);
   const [activePathIndex, setActivePathIndex] = useState(null);
+  const [activeColor, setActiveColor] = useState(null);
 
   const historyRef = useRef([JSON.parse(JSON.stringify(demoFiles))]);
   const indexRef = useRef(0);
@@ -86,11 +87,13 @@ function Provider({ children }) {
         files,
         selectedFile,
         activePathIndex,
+        activeColor,
         deleteFile,
         setFiles,
         setSelectedFile,
         getSelectedFile,
         setActivePathIndex,
+        setActiveColor,
       }}
     >
       {children}

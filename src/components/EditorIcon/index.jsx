@@ -9,7 +9,8 @@ import shortcuts from '../../shortcuts';
 import convertToSVG from '../../utils/convertToSVG';
 
 const EditorIcon = () => {
-  const { files, deleteFile, selectedFile, getSelectedFile, activePathIndex } = useContext(Context);
+  const { files, deleteFile, selectedFile, getSelectedFile, activePathIndex, activeColor } =
+    useContext(Context);
   const [file, setFile] = useState(getSelectedFile(selectedFile));
 
   const saveFile = (event, file) => {
@@ -44,6 +45,9 @@ const EditorIcon = () => {
   }, [selectedFile, files]);
 
   const isCurrentPath = (activePathIndex, index) => {
+    if (activeColor) {
+      return (file?.fills[index] || null)?.toLowerCase() === activeColor.toLowerCase();
+    }
     if (typeof activePathIndex !== 'number') return true;
     if (file?.hiddenPaths?.includes(activePathIndex)) return true;
     return activePathIndex === index;

@@ -11,12 +11,18 @@ import DownloadButton from '../../components/DownloadButton';
 import { Context } from '../../contexts/FilesContext';
 
 const Editor = () => {
-  const { files, setFiles, selectedFile, getSelectedFile } = useContext(Context);
+  const { files, setFiles, selectedFile, setSelectedFile, getSelectedFile } = useContext(Context);
   const [file, setFile] = useState(getSelectedFile(selectedFile));
 
   useEffect(() => {
     const localFiles = lookie.get('files') || {};
-    setFiles({ ...files, ...localFiles });
+    const merged = { ...files, ...localFiles };
+    setFiles(merged);
+
+    const names = Object.keys(merged);
+    if (!selectedFile && names.length > 0) {
+      setSelectedFile(names[0]);
+    }
   }, []);
 
   useEffect(() => {

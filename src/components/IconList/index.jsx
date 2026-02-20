@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import cx from 'classnames';
 
-import { X, Github, Twitter } from 'lucide-react';
+import { X, Github, Twitter, Sparkles, ExternalLink } from 'lucide-react';
 import UploadButton from '../UploadButton';
 import ImportButton from '../ImportButton';
 import ExportButton from '../ExportButton';
@@ -29,7 +29,20 @@ const IconList = () => {
         <b className="italic">SVG</b> <span className="text-neutral-400">Quick Editor</span>
       </div>
 
-      <h4 className="text-sm flex items-center  justify-between m-0 w-full bg-neutral-900/70 text-neutral-400 font-normal px-3 py-2 leading-[22px]">
+      <a
+        href="https://fal.ai/models/fal-ai/recraft/v4/pro/text-to-vector/"
+        target="_blank"
+        rel="noreferrer"
+        className="w-full shrink-0 flex items-center gap-2 px-3 py-2.5 bg-gradient-to-r from-teal-500/10 to-violet-500/10 hover:from-teal-500/20 hover:to-violet-500/20 border-b border-neutral-700 no-underline transition-all duration-200 group/gen"
+      >
+        <Sparkles size={14} className="text-teal-300 shrink-0 group-hover/gen:animate-pulse" />
+        <span className="text-xs flex items-center gap-1 font-medium bg-gradient-to-r from-teal-300 to-violet-400 bg-clip-text text-transparent">
+          Generate SVG on fal.ai
+          <ExternalLink size={11} className="shrink-0 text-violet-400" />
+        </span>
+      </a>
+
+      <h4 className="text-sm flex items-center justify-between m-0 w-full bg-neutral-900/70 text-neutral-400 font-normal px-3 py-2 leading-[22px]">
         Files <span className="text-neutral-600 ml-[5px]">{Object.keys(files).length}</span>
         <div className="flex items-center gap-2 ml-auto">
           <UploadButton />
