@@ -72,7 +72,7 @@ const ColorGroups = ({ file, setFile }) => {
 
   return (
     <div data-testid="ColorGroups" className="w-full">
-      <div className="text-[11px] m-0 w-full bg-neutral-900 text-neutral-500 font-normal px-3 py-2 leading-[22px]">
+      <div className="text-xs m-0 w-full bg-neutral-900 text-neutral-500 font-normal px-3 py-2 leading-[22px]">
         Color Groups <span className="text-neutral-600 ml-[5px]">{uniqueFills.length}</span>
       </div>
       <div className="w-full flex flex-col bg-neutral-800 text-xs overflow-y-auto max-h-[200px]">

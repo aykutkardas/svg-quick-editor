@@ -1,5 +1,6 @@
 import { Save } from 'lucide-react';
 import convertToSVG from '../../utils/convertToSVG';
+import Tooltip from '../Tooltip';
 
 const DownloadButton = ({ file }) => {
   const onClick = () => {
@@ -13,13 +14,15 @@ const DownloadButton = ({ file }) => {
   };
 
   return file ? (
-    <button
-      data-testid="DownloadButton"
-      className="bg-transparent border-0 p-0 cursor-pointer hover:opacity-80"
-      onClick={onClick}
-    >
-      <Save size={16} className="text-neutral-400" />
-    </button>
+    <Tooltip text="Download SVG" position="top">
+      <button
+        data-testid="DownloadButton"
+        className="bg-transparent border-0 p-0 cursor-pointer hover:opacity-80"
+        onClick={onClick}
+      >
+        <Save size={16} className="text-neutral-400" />
+      </button>
+    </Tooltip>
   ) : null;
 };
 

@@ -2,10 +2,11 @@ import { useContext, useEffect, useRef } from 'react';
 import cx from 'classnames';
 import hotkeys from 'hotkeys-js';
 
-import { Download, Upload } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 import getImportFile from '../../utils/getImportFile';
 import { Context } from '../../contexts/FilesContext';
+import Tooltip from '../Tooltip';
 
 import shortcuts from '../../shortcuts';
 
@@ -30,30 +31,24 @@ const ImportButton = ({ className }) => {
   }, []);
 
   return (
-    <div data-testid="ImportButton" className={cx(className, 'text-xs select-none w-full ')}>
-      <label
-        htmlFor="import-input"
-        className="w-full cursor-pointer flex items-center h-full relative"
-      >
-        <Download size={16} className="shrink-0 mr-[5px] text-neutral-400" />{' '}
-        <span className="w-full">Import JSON</span>
-        <span className="flex items-center gap-1 ml-auto">
-          {getReadableShortcut(shortcuts.importJSON)
-            .split(' + ')
-            .map((key, i) => (
-              <kbd key={i}>{key}</kbd>
-            ))}
-        </span>
-        <input
-          id="import-input"
-          type="file"
-          accept="application/json"
-          ref={inputRef}
-          onChange={handleFileInput}
-          className="invisible pointer-events-none w-0"
-        />
-      </label>
-    </div>
+    <Tooltip text="Import JSON" shortcut={getReadableShortcut(shortcuts.importJSON)}>
+      <div data-testid="ImportButton" className={cx(className, 'text-xs select-none w-full')}>
+        <label
+          htmlFor="import-input"
+          className="w-full cursor-pointer flex items-center h-full relative"
+        >
+          <Download size={16} className="shrink-0 text-neutral-400" />
+          <input
+            id="import-input"
+            type="file"
+            accept="application/json"
+            ref={inputRef}
+            onChange={handleFileInput}
+            className="invisible pointer-events-none w-0"
+          />
+        </label>
+      </div>
+    </Tooltip>
   );
 };
 

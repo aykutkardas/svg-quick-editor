@@ -127,10 +127,10 @@ const EditorTool = ({ file, setFile }) => {
   return (
     <div
       data-testid="EditorTool"
-      className="w-full min-w-0 flex-1 flex flex-col justify-start items-start bg-neutral-800 rounded-xl overflow-hidden z-[1] border border-t-neutral-600 border-x-neutral-700 border-b-neutral-900"
+      className="w-full min-w-0 flex-1 flex flex-col justify-start items-start bg-neutral-800 rounded-xl overflow-hidden z-[1] border border-t-neutral-600 border-x-neutral-700 border-b-neutral-700 shadow-lg shadow-black/20"
       key={selectedFile}
     >
-      <div className="text-[11px] m-0 w-full bg-neutral-900 text-neutral-500 font-normal px-3 py-2 leading-[22px]">
+      <div className="text-xs m-0 w-full bg-neutral-900 text-neutral-500 font-normal px-3 py-2 leading-[22px]">
         Paths
         <span className="text-neutral-600 ml-[5px]">{file?.paths?.length || 0}</span>
       </div>

@@ -11,9 +11,6 @@ import DownloadButton from '../DownloadButton';
 import { Context } from '../../contexts/FilesContext';
 import convertToSVG from '../../utils/convertToSVG';
 
-const listItemClass =
-  'text-sm cursor-pointer min-h-[30px] flex items-center justify-start px-2 text-neutral-400 whitespace-nowrap bg-transparent hover:bg-neutral-700 transition-colors duration-150';
-
 const IconList = () => {
   const { files, deleteFile, selectedFile, setSelectedFile } = useContext(Context);
 
@@ -26,25 +23,32 @@ const IconList = () => {
   return (
     <div
       data-testid="IconList"
-      className="w-[250px] min-w-[250px] h-full flex flex-col justify-start items-start bg-neutral-800 overflow-y-auto overflow-x-hidden rounded-xl z-[1] border border-t-neutral-600 border-x-neutral-700 border-b-neutral-900"
+      className="w-[250px] min-w-[250px] h-full flex flex-col justify-start items-start bg-neutral-800 overflow-y-auto overflow-x-hidden rounded-xl z-[1] border border-t-neutral-600 border-x-neutral-700 border-b-neutral-700 shadow-lg shadow-black/20"
     >
-      <div className="text-[11px] m-0 w-full bg-neutral-900 text-neutral-500 font-normal px-3 leading-[22px] h-[50px] py-2 flex items-center select-none rounded-t-xl">
-        <img src="/logo.png" alt="zap" />
+      <div className="text-base p-3 border-b border-neutral-700 w-full bg-neutral-900">
+        <b className="italic">SVG</b> <span className="text-neutral-400">Quick Editor</span>
       </div>
-      <UploadButton className={listItemClass} />
-      <ImportButton className={listItemClass} />
-      <ExportButton className={listItemClass} />
-      <h4 className="text-[11px] m-0 w-full bg-neutral-900 text-neutral-500 font-normal px-3 py-2 leading-[22px]">
+
+      <h4 className="text-sm flex items-center  justify-between m-0 w-full bg-neutral-900 text-neutral-400 font-normal px-3 py-2 leading-[22px]">
         Files <span className="text-neutral-600 ml-[5px]">{Object.keys(files).length}</span>
+        <div className="flex items-center gap-2 ml-auto">
+          <UploadButton />
+          <ImportButton />
+          <ExportButton />
+        </div>
       </h4>
       <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
         {Object.values(files).map((file, index) => (
           <div
             data-testid={`IconListItem${index + 1}`}
             key={file.name}
-            className={cx('group', listItemClass, {
-              'bg-neutral-700 !text-teal-300': file.name === selectedFile,
-            })}
+            className={cx(
+              'group',
+              'text-sm cursor-pointer min-h-[30px] flex items-center justify-start px-2 text-neutral-400 whitespace-nowrap bg-transparent hover:bg-neutral-700 transition-colors duration-150',
+              {
+                'bg-neutral-700 !text-teal-300': file.name === selectedFile,
+              },
+            )}
             onClick={() => setSelectedFile(file.name)}
           >
             <span

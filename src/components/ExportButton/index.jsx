@@ -2,9 +2,10 @@ import { useContext, useEffect } from 'react';
 import cx from 'classnames';
 import hotkeys from 'hotkeys-js';
 
-import { Download, Upload } from 'lucide-react';
+import { Upload } from 'lucide-react';
 
 import { Context } from '../../contexts/FilesContext';
+import Tooltip from '../Tooltip';
 
 import shortcuts from '../../shortcuts';
 
@@ -31,21 +32,15 @@ const ExportButton = ({ className }) => {
   }, []);
 
   return Object.keys(files).length > 0 ? (
-    <button
-      data-testid="ExportButton"
-      className={cx(className, 'w-full border-0 text-xs cursor-pointer relative')}
-      onClick={onClick}
-    >
-      <Upload size={16} className="shrink-0 mr-[5px] text-neutral-400" />{' '}
-      <span className="w-full text-left">Export JSON</span>
-      <span className="flex items-center gap-1 ml-auto">
-        {getReadableShortcut(shortcuts.exportJSON)
-          .split(' + ')
-          .map((key, i) => (
-            <kbd key={i}>{key}</kbd>
-          ))}
-      </span>
-    </button>
+    <Tooltip text="Export JSON" shortcut={getReadableShortcut(shortcuts.exportJSON)}>
+      <button
+        data-testid="ExportButton"
+        className={cx(className, 'w-full border-0 text-xs cursor-pointer relative')}
+        onClick={onClick}
+      >
+        <Upload size={16} className="shrink-0 text-neutral-400" />
+      </button>
+    </Tooltip>
   ) : null;
 };
 

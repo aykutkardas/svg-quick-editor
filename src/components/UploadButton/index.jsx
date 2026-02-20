@@ -6,6 +6,7 @@ import { Plus } from 'lucide-react';
 
 import getSelectedFiles from '../../utils/getSelectedFiles';
 import { Context } from '../../contexts/FilesContext';
+import Tooltip from '../Tooltip';
 
 import shortcuts from '../../shortcuts';
 
@@ -30,31 +31,25 @@ const UploadButton = ({ className }) => {
   }, []);
 
   return (
-    <div data-testid="UploadButton" className={cx(className, 'text-xs select-none w-full')}>
-      <label
-        htmlFor="upload-input"
-        className="w-full cursor-pointer flex items-center h-full relative"
-      >
-        <Plus size={16} className="shrink-0 mr-[5px] text-teal-300" />{' '}
-        <span className="w-full">Add SVG Files</span>
-        <span className="flex items-center gap-1 ml-0">
-          {getReadableShortcut(shortcuts.addFiles)
-            .split(' + ')
-            .map((key, i) => (
-              <kbd key={i}>{key}</kbd>
-            ))}
-        </span>
-        <input
-          id="upload-input"
-          type="file"
-          multiple
-          accept="image/svg+xml"
-          ref={inputRef}
-          onChange={handleFileInput}
-          className="absolute invisible pointer-events-none"
-        />
-      </label>
-    </div>
+    <Tooltip text="Add SVG Files" shortcut={getReadableShortcut(shortcuts.addFiles)}>
+      <div data-testid="UploadButton" className={cx(className, 'text-xs select-none w-full')}>
+        <label
+          htmlFor="upload-input"
+          className="w-full cursor-pointer flex items-center h-full relative"
+        >
+          <Plus size={16} className="shrink-0 text-teal-300" />
+          <input
+            id="upload-input"
+            type="file"
+            multiple
+            accept="image/svg+xml"
+            ref={inputRef}
+            onChange={handleFileInput}
+            className="absolute invisible pointer-events-none"
+          />
+        </label>
+      </div>
+    </Tooltip>
   );
 };
 
