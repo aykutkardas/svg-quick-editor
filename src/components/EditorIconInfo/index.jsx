@@ -1,8 +1,12 @@
 import filesize from 'filesize';
-
-import Icon from '../Icon';
+import { Tag, Maximize2, Box } from 'lucide-react';
 
 import convertToSVG from '../../utils/convertToSVG';
+
+const truncateName = (name, max = 20) => {
+  if (name.length <= max) return name;
+  return `${name.slice(0, 8)}....${name.slice(-12)}`;
+};
 
 const EditorIconInfo = ({ file }) => {
   if (!file) return null;
@@ -15,15 +19,15 @@ const EditorIconInfo = ({ file }) => {
   return (
     <span data-testid="EditorIconInfo" className="text-[11px] ml-auto text-txt-4">
       <span className="ml-[15px] inline-flex items-center">
-        <Icon icon="tag" size={14} className="mr-[5px]" />
-        {file.name}
+        <Tag size={14} className="mr-[5px]" />
+        {truncateName(file.name)}
       </span>
       <span className="ml-[15px] inline-flex items-center">
-        <Icon icon="expand-full" size={14} className="mr-[5px]" />
+        <Maximize2 size={14} className="mr-[5px]" />
         {size}
       </span>
       <span className="ml-[15px] inline-flex items-center">
-        <Icon icon="box" size={14} className="mr-[5px]" />
+        <Box size={14} className="mr-[5px]" />
         {fileSize}
       </span>
     </span>

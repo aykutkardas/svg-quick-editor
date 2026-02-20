@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import cx from 'classnames';
 import hotkeys from 'hotkeys-js';
 
-import Icon from '../../components/Icon';
+import { Download, Upload } from 'lucide-react';
 
 import { Context } from '../../contexts/FilesContext';
 
@@ -33,13 +33,10 @@ const ExportButton = ({ className }) => {
   return Object.keys(files).length > 0 ? (
     <button
       data-testid="ExportButton"
-      className={cx(
-        className,
-        'w-full border-0 text-xs cursor-pointer relative [&_svg]:text-txt-5 [&_svg]:mr-[5px] hover:[&_svg]:opacity-80',
-      )}
+      className={cx(className, 'w-full border-0 text-xs cursor-pointer relative')}
       onClick={onClick}
     >
-      <Icon icon="arrow-down" size={16} /> Export JSON
+      <Upload size={16} className="shrink-0 mr-[5px] text-txt-5" /> Export JSON
       <span className="text-txt-4 absolute right-3 text-[10px] font-bold text-right opacity-40">
         {getReadableShortcut(shortcuts.exportJSON)}
       </span>

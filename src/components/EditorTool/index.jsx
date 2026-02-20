@@ -1,7 +1,7 @@
 import { useContext, useState, useRef, useEffect } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
-import Icon from '../Icon';
+import { Trash2 } from 'lucide-react';
 import ColorPicker from '../ColorPicker';
 import ColorCircle from '../ColorCircle';
 
@@ -109,10 +109,9 @@ const EditorTool = ({ file, setFile }) => {
               <PathPreview d={path} fill={file?.fills[index] || '#a1a1aa'} />
               <div className="pr-2.5 w-full text-txt-6 overflow-x-hidden flex items-center">
                 <span className="w-full overflow-hidden leading-[30px] select-none">{path}</span>
-                <Icon
-                  className="text-txt-5 ml-auto pl-2.5 min-w-[16px] min-h-[16px] !hidden group-hover:!block cursor-pointer hover:opacity-80"
+                <Trash2
+                  className="text-txt-5 ml-auto pl-2.5 min-w-[16px] min-h-[16px] hidden group-hover:block cursor-pointer hover:opacity-80"
                   size={16}
-                  icon="delete-bin"
                   onClick={() => handleRemovePath(index)}
                 />
               </div>

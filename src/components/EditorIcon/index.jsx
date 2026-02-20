@@ -55,12 +55,11 @@ const EditorIcon = () => {
       className="flex items-center justify-center w-full h-full relative bg-surface-2 rounded-xl border border-t-edge-t border-x-edge-x border-b-edge-b"
     >
       {file && (
-        <div className="w-[500px] h-[500px] relative flex items-center justify-between flex-col py-2.5 px-5">
+        <div className="w-[80%] h-[80%] relative flex items-center justify-center flex-col">
           <svg
-            className="w-[500px] h-[500px] border border-panel m-2.5 rounded transparency-grid"
-            width={file.width}
-            height={file.height}
+            className="max-w-full max-h-[calc(100%-2rem)] border border-panel rounded transparency-grid"
             viewBox={file.viewBox}
+            style={{ aspectRatio: `${file.width} / ${file.height}` }}
           >
             {file.paths.map((path, index) => (
               <path

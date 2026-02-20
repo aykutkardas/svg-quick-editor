@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import cx from 'classnames';
 
-import Icon from '../Icon';
+import { X, Github, Twitter } from 'lucide-react';
 import UploadButton from '../UploadButton';
 import ImportButton from '../ImportButton';
 import ExportButton from '../ExportButton';
@@ -56,10 +56,9 @@ const IconList = () => {
             </span>
             <span className="inline-flex items-center ml-auto justify-between invisible pointer-events-none group-hover:visible group-hover:pointer-events-auto [&_svg]:ml-[5px]">
               <DownloadButton file={file} />
-              <Icon
-                className="text-txt-5 hover:opacity-80"
+              <X
+                className="text-txt-5 hover:opacity-80 cursor-pointer"
                 size={18}
-                icon="multiply"
                 onClick={event => handleDelete(file, event)}
               />
             </span>
@@ -73,7 +72,7 @@ const IconList = () => {
           rel="noreferrer"
           className="text-txt-3 no-underline hover:text-accent transition-colors duration-150"
         >
-          <Icon size={18} icon="github" className="mx-2" />
+          <Github size={18} className="mx-2" />
         </a>
         <a
           href="https://twitter.com/aykutkardas"
@@ -81,7 +80,7 @@ const IconList = () => {
           rel="noreferrer"
           className="text-txt-3 no-underline hover:text-accent transition-colors duration-150"
         >
-          <Icon size={18} icon="twitter" className="mx-2" />
+          <Twitter size={18} className="mx-2" />
         </a>
       </div>
     </div>

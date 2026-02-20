@@ -1,4 +1,4 @@
-import Icon from '../../components/Icon';
+import { Save } from 'lucide-react';
 import convertToSVG from '../../utils/convertToSVG';
 
 const DownloadButton = ({ file }) => {
@@ -15,10 +15,10 @@ const DownloadButton = ({ file }) => {
   return file ? (
     <button
       data-testid="DownloadButton"
-      className="bg-transparent border-0 p-0 cursor-pointer [&_svg]:text-txt-5 hover:[&_svg]:opacity-80"
+      className="bg-transparent border-0 p-0 cursor-pointer hover:opacity-80"
       onClick={onClick}
     >
-      <Icon icon="save" size={16} />
+      <Save size={16} className="text-txt-5" />
     </button>
   ) : null;
 };

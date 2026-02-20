@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef } from 'react';
 import cx from 'classnames';
 import hotkeys from 'hotkeys-js';
 
-import Icon from '../Icon';
+import { Plus } from 'lucide-react';
 
 import getSelectedFiles from '../../utils/getSelectedFiles';
 import { Context } from '../../contexts/FilesContext';
@@ -35,7 +35,7 @@ const UploadButton = ({ className }) => {
         htmlFor="upload-input"
         className="w-full cursor-pointer flex items-center h-full relative"
       >
-        <Icon icon="plus" size={16} className="mr-[5px] text-accent" /> Add SVG Files
+        <Plus size={16} className="shrink-0 mr-[5px] text-accent" /> Add SVG Files
         <span className="text-txt-4 absolute right-[18px] text-[10px] font-bold opacity-40">
           {getReadableShortcut(shortcuts.addFiles)}
         </span>
