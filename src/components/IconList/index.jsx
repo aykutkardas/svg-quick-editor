@@ -29,7 +29,7 @@ const IconList = () => {
         <b className="italic">SVG</b> <span className="text-neutral-400">Quick Editor</span>
       </div>
 
-      <h4 className="text-sm flex items-center  justify-between m-0 w-full bg-neutral-900 text-neutral-400 font-normal px-3 py-2 leading-[22px]">
+      <h4 className="text-sm flex items-center  justify-between m-0 w-full bg-neutral-900/70 text-neutral-400 font-normal px-3 py-2 leading-[22px]">
         Files <span className="text-neutral-600 ml-[5px]">{Object.keys(files).length}</span>
         <div className="flex items-center gap-2 ml-auto">
           <UploadButton />

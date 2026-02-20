@@ -31,7 +31,7 @@ const Editor = () => {
       <IconList />
       <div className="flex flex-col items-start w-full gap-[20px] min-w-0">
         <EditorIcon />
-        <div className="w-full shrink-0 bg-neutral-800 rounded-xl overflow-hidden border border-t-neutral-600 border-x-neutral-700 border-b-neutral-700 shadow-lg shadow-black/20 px-4 py-3 flex items-center">
+        <div className="w-full shrink-0 bg-neutral-800 rounded-xl border border-t-neutral-600 border-x-neutral-700 border-b-neutral-700 shadow-lg shadow-black/20 px-4 py-3 flex items-center">
           <EditorIconInfo file={file} />
           <div className="ml-auto">
             <DownloadButton file={file} />
