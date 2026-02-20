@@ -5,6 +5,8 @@ const shortcuts = {
   exportJSON: 'ctrl+e,cmd+e',
   closeFile: 'alt+q',
   saveFile: 'ctrl+s,cmd+s',
+  undo: 'ctrl+z,cmd+z',
+  redo: 'ctrl+shift+z,cmd+shift+z',
 };
 
 export default shortcuts;
