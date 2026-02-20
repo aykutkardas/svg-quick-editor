@@ -55,44 +55,6 @@ kbd {
   color: #737373;
 }
 
-input[type='range'] {
-  -webkit-appearance: none;
-  appearance: none;
-  background: transparent;
-  height: 4px;
-}
-
-input[type='range']::-webkit-slider-runnable-track {
-  height: 4px;
-  border-radius: 2px;
-  background: #404040;
-}
-
-input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #5eead4;
-  margin-top: -4px;
-  cursor: pointer;
-}
-
-input[type='range']::-moz-range-track {
-  height: 4px;
-  border-radius: 2px;
-  background: #404040;
-}
-
-input[type='range']::-moz-range-thumb {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #5eead4;
-  border: none;
-  cursor: pointer;
-}
-
 .transparency-grid {
   background-color: #1c1c1c;
   background-image: linear-gradient(45deg, #262626 25%, transparent 25%),

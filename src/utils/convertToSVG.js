@@ -11,6 +11,8 @@ const convertToSVG = file => {
   svg.setAttribute('height', file.height || '32');
 
   file.paths?.forEach((path, index) => {
+    if (file.hiddenPaths?.includes(index)) return;
+
     const pathEl = document.createElement('path');
     pathEl.setAttribute('d', path);
 

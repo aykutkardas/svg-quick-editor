@@ -44,7 +44,9 @@ const EditorIcon = () => {
   }, [selectedFile, files]);
 
   const isCurrentPath = (activePathIndex, index) => {
-    return typeof activePathIndex === 'number' ? activePathIndex === index : true;
+    if (typeof activePathIndex !== 'number') return true;
+    if (file?.hiddenPaths?.includes(activePathIndex)) return true;
+    return activePathIndex === index;
   };
 
   return (
@@ -59,16 +61,18 @@ const EditorIcon = () => {
             viewBox={file.viewBox}
             style={{ aspectRatio: `${file.width} / ${file.height}` }}
           >
-            {file.paths.map((path, index) => (
-              <path
-                key={path + index + (file.fills[index] || '')}
-                d={path}
-                fill={file.fills[index] || '#8491a3'}
-                className={cx('transition-opacity duration-200', {
-                  'opacity-10': !isCurrentPath(activePathIndex, index),
-                })}
-              />
-            ))}
+            {file.paths.map((path, index) =>
+              file.hiddenPaths?.includes(index) ? null : (
+                <path
+                  key={path + index + (file.fills[index] || '')}
+                  d={path}
+                  fill={file.fills[index] || '#8491a3'}
+                  className={cx('transition-opacity duration-200', {
+                    'opacity-10': !isCurrentPath(activePathIndex, index),
+                  })}
+                />
+              ),
+            )}
           </svg>
         </div>
       )}

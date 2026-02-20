@@ -7,6 +7,7 @@ import ColorCircle from '../ColorCircle';
 import { Context } from '../../contexts/FilesContext';
 
 import getColorCount from '../../utils/getColorCount';
+import toHex from '../../utils/toHex';
 
 const GroupPreview = ({ file, fill }) => {
   const groupRef = useRef(null);
@@ -89,7 +90,7 @@ const ColorGroups = ({ file, setFile }) => {
             </div>
             <GroupPreview file={file} fill={fill} />
             <div className="text-neutral-600 select-none whitespace-nowrap">
-              {(fill || '#EEEEEE').toUpperCase()}
+              {(toHex(fill) || '#EEEEEE').toUpperCase()}
             </div>
             <span className="text-neutral-400 mr-1 ml-auto text-[10px]">
               {getColorCount(file, fill)}
