@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState, useRef, useEffect } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 import Icon from '../Icon';
-import ColorGroups from '../ColorGroups';
 import ColorPicker from '../ColorPicker';
 import ColorCircle from '../ColorCircle';
 
@@ -10,14 +9,37 @@ import { Context } from '../../contexts/FilesContext';
 
 import removePath from '../../utils/removePathByIndex';
 
-const EditorTool = () => {
-  const { files, setFiles, selectedFile, getSelectedFile, setActivePathIndex } =
-    useContext(Context);
-  const [file, setFile] = useState(getSelectedFile(selectedFile));
+const PathPreview = ({ d, fill }) => {
+  const pathRef = useRef(null);
+  const [viewBox, setViewBox] = useState('0 0 24 24');
+
+  useEffect(() => {
+    if (!pathRef.current) return;
+    try {
+      const { x, y, width, height } = pathRef.current.getBBox();
+      if (width > 0 && height > 0) {
+        const pad = Math.max(width, height) * 0.1;
+        setViewBox(`${x - pad} ${y - pad} ${width + pad * 2} ${height + pad * 2}`);
+      }
+    } catch {}
+  }, [d]);
+
+  return (
+    <svg
+      className="w-[22px] h-[22px] mr-2 shrink-0 rounded-sm"
+      viewBox={viewBox}
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <path ref={pathRef} d={d} fill={fill} />
+    </svg>
+  );
+};
+
+const EditorTool = ({ file, setFile }) => {
+  const { files, setFiles, selectedFile, setActivePathIndex } = useContext(Context);
   const [color, setColor] = useState();
   const [openPicker, setOpenPicker] = useState(false);
   const [positions, setPositions] = useState([0, 0]);
-
   const [currentPathIndex, setCurrentPathIndex] = useState(null);
 
   const toggleColor = (color, { screenX, screenY }) => {
@@ -55,18 +77,12 @@ const EditorTool = () => {
     setFiles(files);
   };
 
-  useEffect(() => {
-    setFile(getSelectedFile(selectedFile));
-    setActivePathIndex(null);
-  }, [selectedFile, files]);
-
   return (
     <div
       data-testid="EditorTool"
-      className="w-full h-[400px] flex flex-col justify-start items-start bg-surface-2 rounded-xl overflow-hidden z-[1] border border-t-edge-t border-x-edge-x border-b-edge-b"
+      className="w-[280px] min-w-[280px] h-full flex flex-col justify-start items-start bg-surface-2 rounded-xl overflow-hidden z-[1] border border-t-edge-t border-x-edge-x border-b-edge-b"
       key={selectedFile}
     >
-      <ColorGroups file={file} setFile={setFile} />
       <div className="text-[11px] m-0 w-full bg-surface-3 text-txt-3 font-normal px-2 leading-[22px]">
         Paths
         <span className="text-txt-4 ml-[5px]">{file?.paths?.length || 0}</span>
@@ -87,11 +103,14 @@ const EditorTool = () => {
                   color={file?.fills[index]}
                 />
               </div>
-              <div className="mr-5 text-txt-1 select-none flex">Path {index + 1}</div>
+              <div className="mr-1 text-txt-1 select-none flex whitespace-nowrap">
+                Path {index + 1}
+              </div>
+              <PathPreview d={path} fill={file?.fills[index] || '#a1a1aa'} />
               <div className="pr-2.5 w-full text-txt-6 overflow-x-hidden flex items-center">
                 <span className="w-full overflow-hidden leading-[30px] select-none">{path}</span>
                 <Icon
-                  className="text-txt-5 ml-auto pl-2.5 !hidden group-hover:!block cursor-pointer hover:opacity-80"
+                  className="text-txt-5 ml-auto pl-2.5 min-w-[16px] min-h-[16px] !hidden group-hover:!block cursor-pointer hover:opacity-80"
                   size={16}
                   icon="delete-bin"
                   onClick={() => handleRemovePath(index)}
