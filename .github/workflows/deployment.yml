@@ -14,8 +14,7 @@ jobs:
       - name: Install surge and fire deployment
         uses: actions/setup-node@v1
         with:
-          node-version: 16
-          cache: 'yarn'
+          node-version: 18
       - run: yarn install
       - run: yarn build
       - run: yarn test
