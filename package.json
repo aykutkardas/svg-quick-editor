@@ -6,6 +6,7 @@
     "email": "aykutkrds@gmail.com"
   },
   "dependencies": {
+    "ajv": "^8.18.0",
     "classnames": "^2.3.1",
     "hotkeys-js": "^3.8.7",
     "lodash.xor": "^4.5.0",
@@ -16,7 +17,7 @@
     "react-dom": "^17.0.2",
     "react-icomoon": "^2.4.2",
     "react-outside-click-handler": "^1.3.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.1",
     "svgps": "^0.2.2",
     "web-vitals": "^1.0.1"
   },
