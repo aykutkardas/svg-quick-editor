@@ -1,5 +1,4 @@
 import { useContext, useState, useRef, useEffect, useMemo } from 'react';
-import { Scrollbars } from 'react-custom-scrollbars';
 import cx from 'classnames';
 
 import { Trash2, Eye, EyeOff } from 'lucide-react';
@@ -146,64 +145,62 @@ const EditorTool = ({ file, setFile }) => {
         <span className="text-neutral-600 ml-[5px]">{file?.paths?.length || 0}</span>
       </div>
 
-      <div className="w-full h-full flex flex-col justify-start items-start bg-neutral-800">
-        <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
-          {sortedIndices.map(index => {
-            const path = file.paths[index];
-            const isHidden = file?.hiddenPaths?.includes(index);
-            return (
-              <div
-                key={path + index}
-                className="group h-[30px] text-xs whitespace-nowrap overflow-hidden max-w-full w-full border-b border-neutral-700 flex items-center hover:bg-neutral-700 transition-colors duration-150"
-                style={{ opacity: isHidden ? 0.3 : 1 }}
-                onClick={() => setCurrentPathIndex(index)}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <span className="shrink-0 mx-1">
-                  {isHidden ? (
-                    <EyeOff
-                      className="shrink-0 text-neutral-600 cursor-pointer hover:text-neutral-400"
-                      size={14}
-                      onClick={e => {
-                        e.stopPropagation();
-                        handleToggleVisibility(index);
-                      }}
-                    />
-                  ) : (
-                    <Eye
-                      className="shrink-0 text-neutral-500 cursor-pointer hover:text-neutral-300"
-                      size={14}
-                      onClick={e => {
-                        e.stopPropagation();
-                        handleToggleVisibility(index);
-                      }}
-                    />
-                  )}
-                </span>
-                <div className="w-[30px] h-full flex items-center justify-center pl-1 mr-2.5">
-                  <ColorCircle
-                    onClick={event => toggleColor(file?.fills[index] || '#eee', event)}
-                    color={file?.fills[index]}
-                  />
-                </div>
-
-                <PathPreview d={path} fill={file?.fills[index] || '#a1a1aa'} />
-
-                <div className="pr-2.5 w-full text-neutral-700 overflow-x-hidden flex items-center">
-                  <span className={cx('w-full overflow-hidden leading-[30px] select-none')}>
-                    {path}
-                  </span>
-                  <Trash2
-                    className="text-neutral-400 ml-auto shrink-0 hidden group-hover:block cursor-pointer hover:opacity-80"
+      <div className="w-full flex-1 min-h-0 overflow-y-auto hide-scrollbar bg-neutral-800">
+        {sortedIndices.map(index => {
+          const path = file.paths[index];
+          const isHidden = file?.hiddenPaths?.includes(index);
+          return (
+            <div
+              key={path + index}
+              className="group h-[30px] text-xs whitespace-nowrap overflow-hidden max-w-full w-full border-b border-neutral-700 flex items-center hover:bg-neutral-700 transition-colors duration-150"
+              style={{ opacity: isHidden ? 0.3 : 1 }}
+              onClick={() => setCurrentPathIndex(index)}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span className="shrink-0 mx-1">
+                {isHidden ? (
+                  <EyeOff
+                    className="shrink-0 text-neutral-600 cursor-pointer hover:text-neutral-400"
                     size={14}
-                    onClick={() => handleRemovePath(index)}
+                    onClick={e => {
+                      e.stopPropagation();
+                      handleToggleVisibility(index);
+                    }}
                   />
-                </div>
+                ) : (
+                  <Eye
+                    className="shrink-0 text-neutral-500 cursor-pointer hover:text-neutral-300"
+                    size={14}
+                    onClick={e => {
+                      e.stopPropagation();
+                      handleToggleVisibility(index);
+                    }}
+                  />
+                )}
+              </span>
+              <div className="w-[30px] h-full flex items-center justify-center pl-1 mr-2.5">
+                <ColorCircle
+                  onClick={event => toggleColor(file?.fills[index] || '#eee', event)}
+                  color={file?.fills[index]}
+                />
               </div>
-            );
-          })}
-        </Scrollbars>
+
+              <PathPreview d={path} fill={file?.fills[index] || '#a1a1aa'} />
+
+              <div className="pr-2.5 w-full text-neutral-700 overflow-x-hidden flex items-center">
+                <span className={cx('w-full overflow-hidden leading-[30px] select-none')}>
+                  {path}
+                </span>
+                <Trash2
+                  className="text-neutral-400 ml-auto shrink-0 hidden group-hover:block cursor-pointer hover:opacity-80"
+                  size={14}
+                  onClick={() => handleRemovePath(index)}
+                />
+              </div>
+            </div>
+          );
+        })}
       </div>
       {openPicker && (
         <ColorPicker

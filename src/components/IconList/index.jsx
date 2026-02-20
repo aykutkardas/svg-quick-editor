@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import { Scrollbars } from 'react-custom-scrollbars';
 import cx from 'classnames';
 
 import { X, Github, Twitter, Sparkles, ExternalLink } from 'lucide-react';
@@ -51,7 +50,7 @@ const IconList = () => {
           <ExportButton />
         </div>
       </h4>
-      <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
+      <div className="w-full flex-1 min-h-0 overflow-y-auto hide-scrollbar">
         {Object.values(files).map((file, index) => (
           <div
             data-testid={`IconListItem${index + 1}`}
@@ -82,7 +81,7 @@ const IconList = () => {
             </span>
           </div>
         ))}
-      </Scrollbars>
+      </div>
       <div className="w-full h-[50px] min-h-[50px] flex items-center justify-center bg-neutral-900 rounded-b-xl">
         <a
           href="https://github.com/aykutkardas/svg-quick-editor"
