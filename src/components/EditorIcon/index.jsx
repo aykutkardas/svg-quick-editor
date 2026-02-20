@@ -50,7 +50,7 @@ const EditorIcon = () => {
   return (
     <div
       data-testid="EditorIcon"
-      className="flex items-center justify-center w-full h-full relative bg-surface-2 rounded-xl border border-t-edge-t border-x-edge-x border-b-edge-b"
+      className="flex items-center justify-center w-full flex-1 min-h-0 relative bg-surface-2 rounded-xl border border-t-edge-t border-x-edge-x border-b-edge-b"
     >
       {file && (
         <div className="w-[80%] h-[80%] relative flex items-center justify-center">
