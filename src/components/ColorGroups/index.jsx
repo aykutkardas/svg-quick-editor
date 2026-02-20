@@ -39,7 +39,7 @@ const ColorGroups = ({ file, setFile }) => {
 
   return (
     <div data-testid="ColorGroups" className="w-full">
-      <div className="text-[11px] m-0 w-full bg-surface-3 text-txt-3 font-normal px-2 leading-[22px]">
+      <div className="text-[11px] m-0 w-full bg-surface-3 text-txt-3 font-normal px-3 py-2 leading-[22px]">
         Color Groups <span className="text-txt-4 ml-[5px]">{xor(file?.fills).length || 0}</span>
       </div>
       <Scrollbars autoHide style={{ width: '100%', height: '50px' }}>

@@ -28,13 +28,13 @@ const IconList = () => {
       data-testid="IconList"
       className="w-[250px] min-w-[250px] h-full flex flex-col justify-start items-start bg-surface-2 overflow-y-auto overflow-x-hidden rounded-xl z-[1] border border-t-edge-t border-x-edge-x border-b-edge-b"
     >
-      <div className="text-[11px] m-0 w-full bg-surface-3 text-txt-3 font-normal px-2 leading-[22px] h-[50px] py-2 flex items-center select-none rounded-t-xl">
+      <div className="text-[11px] m-0 w-full bg-surface-3 text-txt-3 font-normal px-3 leading-[22px] h-[50px] py-2 flex items-center select-none rounded-t-xl">
         <img src="/logo.png" alt="zap" />
       </div>
       <UploadButton className={listItemClass} />
       <ImportButton className={listItemClass} />
       <ExportButton className={listItemClass} />
-      <h4 className="text-[11px] m-0 w-full bg-surface-3 text-txt-3 font-normal px-2 leading-[22px]">
+      <h4 className="text-[11px] m-0 w-full bg-surface-3 text-txt-3 font-normal px-3 py-2 leading-[22px]">
         Files <span className="text-txt-4 ml-[5px]">{Object.keys(files).length}</span>
       </h4>
       <Scrollbars autoHide style={{ width: '100%', height: '100%' }}>
