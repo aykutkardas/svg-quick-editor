@@ -57,7 +57,7 @@ const EditorIcon = () => {
       {file && (
         <div className="w-[500px] h-[500px] relative flex items-center justify-between flex-col py-2.5 px-5">
           <svg
-            className="w-[500px] h-[500px] border border-panel m-2.5 rounded"
+            className="w-[500px] h-[500px] border border-panel m-2.5 rounded transparency-grid"
             width={file.width}
             height={file.height}
             viewBox={file.viewBox}

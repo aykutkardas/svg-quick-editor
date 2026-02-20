@@ -36,3 +36,13 @@ body {
   background: rgba(93, 228, 199, 0.2);
   color: #d5dae3;
 }
+
+.transparency-grid {
+  background-color: #181a2a;
+  background-image: linear-gradient(45deg, #1f2137 25%, transparent 25%),
+    linear-gradient(-45deg, #1f2137 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1f2137 75%),
+    linear-gradient(-45deg, transparent 75%, #1f2137 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
