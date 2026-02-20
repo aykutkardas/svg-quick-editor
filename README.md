@@ -1,13 +1,12 @@
 # SVG Quick Editor
 
-[![Build Status](https://github.com/aykutkardas/svg-quick-editor/workflows/build/badge.svg?color=%25234fc921)](https://github.com/aykutkardas/svg-quick-editor/actions)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?color=%234fc921)](https://opensource.org/licenses/MIT)
 
 `SVG Quick Editor` is a free and open-source SVG editing tool. It offers features such as editing
 SVG colors, viewing or deleting their paths. Files don't have upload and download times, you don't
 wait processing times. Everything happens instantly.
 
-## [Go to **SVG Quick Editor**](https://svg-quick-editor.surge.sh/)
+## [Go to **SVG Quick Editor**](https://svg-quick-editor.vercel.app/)
 
 ### Preview
 
@@ -48,12 +47,6 @@ can view it at `http://localhost:3000/`
 
 ```bash
 yarn start
-```
-
-### Running Tests
-
-```bash
-yarn test
 ```
 
 ## License
