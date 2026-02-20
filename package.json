@@ -28,7 +28,7 @@
     "tailwindcss": "^3.4.19"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "scripts": {
     "start": "react-scripts start",
