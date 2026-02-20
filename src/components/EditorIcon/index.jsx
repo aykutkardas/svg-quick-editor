@@ -52,12 +52,12 @@ const EditorIcon = () => {
   return (
     <div
       data-testid="EditorIcon"
-      className="flex items-center justify-center w-full h-full relative"
+      className="flex items-center justify-center w-full h-full relative bg-surface-2 rounded-xl border border-t-edge-t border-x-edge-x border-b-edge-b"
     >
       {file && (
         <div className="w-[500px] h-[500px] relative flex items-center justify-between flex-col py-2.5 px-5">
           <svg
-            className="w-[500px] h-[500px] border border-panel m-2.5"
+            className="w-[500px] h-[500px] border border-panel m-2.5 rounded"
             width={file.width}
             height={file.height}
             viewBox={file.viewBox}
@@ -66,7 +66,7 @@ const EditorIcon = () => {
               <path
                 key={path + index + (file.fills[index] || '')}
                 d={path}
-                fill={file.fills[index] || '#999'}
+                fill={file.fills[index] || '#8491a3'}
                 className={cx('transition-opacity duration-200', {
                   'opacity-10': !isCurrentPath(activePathIndex, index),
                 })}

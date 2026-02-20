@@ -35,7 +35,7 @@ const UploadButton = ({ className }) => {
         htmlFor="upload-input"
         className="w-full cursor-pointer flex items-center h-full relative"
       >
-        <Icon icon="plus" size={16} className="mr-[5px]" /> Add SVG Files
+        <Icon icon="plus" size={16} className="mr-[5px] text-accent" /> Add SVG Files
         <span className="text-txt-4 absolute right-[18px] text-[10px] font-bold opacity-40">
           {getReadableShortcut(shortcuts.addFiles)}
         </span>

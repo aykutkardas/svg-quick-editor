@@ -16,9 +16,12 @@ const Editor = () => {
   }, []);
 
   return (
-    <div data-testid="Editor" className="w-full h-screen bg-surface-3 flex m-0 overflow-hidden">
+    <div
+      data-testid="Editor"
+      className="w-full h-screen bg-surface-1 flex gap-2.5 p-2.5 m-0 overflow-hidden"
+    >
       <IconList />
-      <div className="flex flex-col justify-between items-start w-full">
+      <div className="flex flex-col justify-between items-start w-full gap-2.5 min-w-0">
         <EditorIcon />
         <EditorTool />
       </div>

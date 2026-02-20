@@ -41,7 +41,7 @@ const ImportButton = ({ className }) => {
         htmlFor="import-input"
         className="w-full cursor-pointer flex items-center h-full relative"
       >
-        <Icon icon="arrow-up" size={26} /> Import JSON
+        <Icon icon="arrow-up" size={16} /> Import JSON
         <span className="text-txt-4 absolute right-5 text-[10px] font-bold text-right opacity-40">
           {getReadableShortcut(shortcuts.importJSON)}
         </span>

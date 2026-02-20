@@ -63,7 +63,7 @@ const EditorTool = () => {
   return (
     <div
       data-testid="EditorTool"
-      className="w-full h-[400px] border-t border-panel flex flex-col justify-start items-start bg-surface-2 z-[1]"
+      className="w-full h-[400px] flex flex-col justify-start items-start bg-surface-2 rounded-xl overflow-hidden z-[1] border border-t-edge-t border-x-edge-x border-b-edge-b"
       key={selectedFile}
     >
       <ColorGroups file={file} setFile={setFile} />
@@ -76,7 +76,7 @@ const EditorTool = () => {
           {file?.paths.map((path, index) => (
             <div
               key={path + index}
-              className="group h-[30px] text-xs whitespace-nowrap overflow-hidden max-w-full w-full border-b border-panel flex items-center hover:bg-surface-4"
+              className="group h-[30px] text-xs whitespace-nowrap overflow-hidden max-w-full w-full border-b border-panel flex items-center hover:bg-surface-4 transition-colors duration-150"
               onClick={() => setCurrentPathIndex(index)}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
